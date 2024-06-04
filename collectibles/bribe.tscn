@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxr14p3p83cwt"]
+
+[ext_resource type="Script" path="res://collectibles/bribe.gd" id="1_hcuqs"]
+[ext_resource type="Texture2D" uid="uid://xbpf7ym4rjy8" path="res://assets/collectibles/bribe.png" id="2_4scae"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2t66"]
+radius = 155.0
+height = 560.0
+
+[node name="Bribe" type="Area2D" groups=["bribes", "collectibles"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_hcuqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4scae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j2t66")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

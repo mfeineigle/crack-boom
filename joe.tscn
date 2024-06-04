@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cayddk2x3nj8"]
+
+[ext_resource type="Script" path="res://joe.gd" id="1_o0kic"]
+[ext_resource type="Texture2D" uid="uid://bd0opih1v0v5n" path="res://assets/joe_head.png" id="1_wa0wg"]
+
+[node name="Joe" type="Area2D" groups=["joes"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_o0kic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wa0wg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(7, -325, -85, -301, -148, -234, -172, -149, -173, -49, -127, 161, -271, 237, -279, 332, 275, 335, 278, 262, 142, 193, 142, 118, 171, 52, 188, -82, 192, -183, 127, -289)
+
+[node name="RotationTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="TTL_Timer" type="Timer" parent="."]
+wait_time = 7.5
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="RotationTimer" to="." method="_on_rotation_timer_timeout"]
+[connection signal="timeout" from="TTL_Timer" to="." method="_on_ttl_timer_timeout"]

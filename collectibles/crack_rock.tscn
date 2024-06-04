@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7r5wre1rvynv"]
+
+[ext_resource type="Script" path="res://collectibles/crack_rock.gd" id="1_r4j8j"]
+[ext_resource type="Texture2D" uid="uid://byrbsn1vr552j" path="res://assets/collectibles/crackRock.png" id="2_l1scf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ltbe"]
+radius = 22.0
+height = 62.0
+
+[node name="CrackRock" type="Area2D" groups=["collectibles", "crack_rocks"]]
+script = ExtResource("1_r4j8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_l1scf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6ltbe")

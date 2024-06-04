@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cren0ljasgk6"]
+
+[ext_resource type="Script" path="res://hunter.gd" id="1_e301r"]
+[ext_resource type="Texture2D" uid="uid://bcelepnsonus3" path="res://assets/hunter_head.png" id="1_qe08c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry81i"]
+size = Vector2(43.681, 20)
+
+[node name="Hunter" type="Area2D" groups=["hunter"]]
+script = ExtResource("1_e301r")
+
+[node name="HunterCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-111, -87)
+polygon = PackedVector2Array(78, 1, 80, 111, 41, 121, 3, 170, 224, 172, 224, -1)
+
+[node name="Pipe" type="Area2D" parent="."]
+position = Vector2(-1, 4)
+
+[node name="PipeCollision" type="CollisionShape2D" parent="Pipe"]
+position = Vector2(-65.014, -4.9675)
+rotation = 0.332905
+shape = SubResource("RectangleShape2D_ry81i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("1_qe08c")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Pipe" to="." method="_on_pipe_area_entered"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4nef4hwlqnk4"]
+
+[ext_resource type="Script" path="res://collectibles/gun.gd" id="1_w13ob"]
+[ext_resource type="Texture2D" uid="uid://c7bgjajrub2m" path="res://assets/collectibles/gun.png" id="2_fvpce"]
+
+[node name="Gun" type="Area2D" groups=["collectibles", "guns"]]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_w13ob")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fvpce")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["guns"]]
+polygon = PackedVector2Array(-188, 104, -180, 56, -156, -8, -96, -124, 180, -124, 192, -60, 96, -56, 76, -8, 40, 32, -16, 48, -60, 44, -112, 136, -152, 140)

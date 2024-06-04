@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://46eywunnltdx"]
+
+[ext_resource type="Script" path="res://collectibles/laptop.gd" id="1_862j1"]
+[ext_resource type="Texture2D" uid="uid://dgldom4uc12b2" path="res://assets/collectibles/laptop_blank.png" id="2_qksf3"]
+
+[node name="Laptop" type="Area2D" groups=["collectibles", "laptops"]]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_862j1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_qksf3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["laptops"]]
+polygon = PackedVector2Array(-60, -50, 57.1429, -50, 58.5714, 22.8571, 77.1429, 48.5714, -75.7143, 50, -61.4286, 21.4286)
