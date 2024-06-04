@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		rotation -= delta * rotation_speed
 
 func move_toward_hunter() -> Vector2:
-	return position.direction_to(Global.hunter_pos)
+	return position.direction_to(Globals.hunter_pos)
 
 func _on_rotation_timer_timeout() -> void:
 	rotation_direction = !rotation_direction

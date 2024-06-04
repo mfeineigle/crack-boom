@@ -2,14 +2,14 @@ extends Label
 
 
 func _ready() -> void:
-	Global.caught_crack.connect(_caught_crack)
-	Global.missed_crack.connect(_missed_crack)
-	Global.caught_bribe.connect(_caught_bribe)
-	Global.missed_bribe.connect(_missed_bribe)
-	Global.caught_gun.connect(_caught_gun)
-	Global.missed_gun.connect(_missed_gun)
-	Global.caught_laptop.connect(_caught_laptop)
-	Global.missed_laptop.connect(_missed_laptop)
+	Signals.caught_crack.connect(_caught_crack)
+	Signals.missed_crack.connect(_missed_crack)
+	Signals.caught_bribe.connect(_caught_bribe)
+	Signals.missed_bribe.connect(_missed_bribe)
+	Signals.caught_gun.connect(_caught_gun)
+	Signals.missed_gun.connect(_missed_gun)
+	Signals.caught_laptop.connect(_caught_laptop)
+	Signals.missed_laptop.connect(_missed_laptop)
 	
 func _caught_crack() -> void:
 	print("caught crack")

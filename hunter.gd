@@ -11,7 +11,7 @@ var screensize = Vector2(1142, 648)
 
 func _ready() -> void:
 	position.y = 550
-	Global.caught_crack.connect(_caught_crack)
+	Signals.caught_crack.connect(_caught_crack)
 
 
 func _process(delta):
@@ -26,23 +26,23 @@ func _process(delta):
 	position += velocity * speed * delta
 	# clamp within the screensize
 	position.x = clamp(position.x, 110, screensize.x-100)
-	Global.hunter_pos = position
+	Globals.hunter_pos = position
 	
 func _caught_crack() -> void:
-	Global.crack_speed += 50
+	Globals.crack_speed += 50
 
 func _on_area_entered(area: Area2D) -> void:
 	if area in get_tree().get_nodes_in_group("crack_rocks"):
-		Global.caught_crack.emit()
+		Signals.caught_crack.emit()
 	if area in get_tree().get_nodes_in_group("bribes"):
-		Global.caught_bribe.emit()
+		Signals.caught_bribe.emit()
 	if area in get_tree().get_nodes_in_group("guns"):
-		Global.caught_gun.emit()
+		Signals.caught_gun.emit()
 	if area in get_tree().get_nodes_in_group("laptops"):
-		Global.caught_laptop.emit()
+		Signals.caught_laptop.emit()
 	area.queue_free()
 
 func _on_pipe_area_entered(area: Area2D) -> void:
 	print("direct hit")
-	Global.caught_crack.emit()
+	Signals.caught_crack.emit()
 	area.queue_free()

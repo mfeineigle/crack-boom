@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+Globals="*res://globals.gd"
+Signals="*res://signals.gd"
 
 [editor_plugins]
 

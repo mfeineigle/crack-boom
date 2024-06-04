@@ -3,7 +3,7 @@ extends Node
 @onready var score: Label = $UI/Score
 
 func _ready() -> void:
-	Global.game_over.connect(_game_over)
+	Signals.game_over.connect(_game_over)
 
 
 func _game_over() -> void:

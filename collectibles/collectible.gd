@@ -1,7 +1,7 @@
 class_name Collectible
 extends Area2D
 
-var speed:int = Global.crack_speed
+var speed:int = Globals.crack_speed
 
 var velocity = Vector2.DOWN
 

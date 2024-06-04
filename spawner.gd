@@ -4,14 +4,14 @@ extends Node2D
 @onready var crack_timer: Timer = $CrackTimer
 
 func _ready() -> void:
-	Global.missed_crack.connect(_reset_crack_timer)
-	Global.game_over.connect(_game_over)
-	Global.spawn_joe.connect(_spawn_joe)
+	Signals.missed_crack.connect(_reset_crack_timer)
+	Signals.game_over.connect(_game_over)
+	Signals.spawn_joe.connect(_spawn_joe)
 
 func _spawn_joe() -> void:
 	var joe_spawn_points:Array = [100,200,300]
 	var joe = load("res://joe.tscn").instantiate()
-	var x = Global.hunter_pos.x + randi_range(-250,250)
+	var x = Globals.hunter_pos.x + randi_range(-250,250)
 	var y = joe_spawn_points[randi() % joe_spawn_points.size()]
 	joe.position = Vector2(x,y)
 	joe.speed = randi_range(50,500)
@@ -21,7 +21,7 @@ func spawn_collectible(col_path: String) -> void:
 	var col = load(col_path).instantiate()
 	spawn_path.progress_ratio = randf()
 	col.position = spawn_path.global_position
-	col.speed = Global.crack_speed
+	col.speed = Globals.crack_speed
 	add_child(col)
 
 func choose_collectable() -> void:
