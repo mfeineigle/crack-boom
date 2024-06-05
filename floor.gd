@@ -12,3 +12,4 @@ func _on_area_entered(area: Area2D) -> void:
 			rock.queue_free()
 		Signals.missed_crack.emit()
 		Globals.crack_speed = Globals.default_crack_speed
+	area.queue_free()
