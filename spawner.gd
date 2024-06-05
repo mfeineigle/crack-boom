@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var spawn_path: PathFollow2D = $Path2D/SpawnPath
 @onready var crack_timer: Timer = $CrackTimer
+@onready var avoidable_timer: Timer = $AvoidableTimer
 
 func _ready() -> void:
 	Signals.missed_crack.connect(_reset_crack_timer)
@@ -35,6 +36,7 @@ func choose_collectable() -> void:
 	else:
 		spawn_collectible("res://collectibles/crack_rock.tscn")
 
+
 func _on_crack_timer_timeout() -> void:
 	crack_timer.start()
 	crack_timer.wait_time *= 0.95
@@ -45,3 +47,24 @@ func _reset_crack_timer() -> void:
 
 func _game_over() -> void:
 	crack_timer.stop()
+
+func _reset_avoidable_timer() -> void:
+	avoidable_timer.wait_time = 1
+
+func _on_avoidable_timer_timeout() -> void:
+	avoidable_timer.start()
+	avoidable_timer.wait_time *= 0.95
+	choose_avoidable()
+
+
+func spawn_avoidable(col_path) -> void:
+	var col = load(col_path).instantiate()
+	spawn_path.progress_ratio = randf()
+	col.position = spawn_path.global_position
+	col.speed = Globals.crack_speed
+	add_child(col)
+	
+func choose_avoidable() -> void:
+	var choice:int = randi() % 1
+	if choice == 0:
+		spawn_collectible("res://avoidables/fbi.tscn")
