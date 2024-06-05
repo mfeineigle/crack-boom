@@ -15,8 +15,6 @@ func _ready() -> void:
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
 	velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if velocity == Vector2.LEFT:
 		self.scale.x = 1

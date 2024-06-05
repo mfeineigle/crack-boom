@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm0graa8d8om"]
+
+[ext_resource type="Texture2D" uid="uid://cyp6myeoijdv" path="res://assets/avoidables/FBI.png" id="1_hxlm0"]
+[ext_resource type="Script" path="res://avoidables/fbi.gd" id="1_yr3m6"]
+
+[node name="FBI" type="Area2D" groups=["FBIs", "avoidables"]]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_yr3m6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hxlm0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(21, -273, -35, -243, -49, -132, -112, -97, -116, -35, -223, 74, -244, 126, -187, 205, -112, 249, 43, 276, 162, 243, 208, 219, 237, 184, 238, 123, 220, 36, 127, -19, 93, -54, 96, -115, 110, -149, 90, -245, 64, -272)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
