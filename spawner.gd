@@ -47,6 +47,7 @@ func _reset_crack_timer() -> void:
 
 func _game_over() -> void:
 	crack_timer.stop()
+	avoidable_timer.stop()
 
 func _reset_avoidable_timer() -> void:
 	avoidable_timer.wait_time = 1
@@ -65,6 +66,8 @@ func spawn_avoidable(col_path) -> void:
 	add_child(col)
 	
 func choose_avoidable() -> void:
-	var choice:int = randi() % 1
+	var choice:int = randi() % 2
 	if choice == 0:
 		spawn_collectible("res://avoidables/fbi.tscn")
+	if choice == 1:
+		spawn_collectible("res://avoidables/private_eye.tscn")
