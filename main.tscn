@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xn3fhqndjnbv"]
+[gd_scene load_steps=10 format=3 uid="uid://xn3fhqndjnbv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l1pic"]
 [ext_resource type="PackedScene" uid="uid://cren0ljasgk6" path="res://hunter.tscn" id="2_bjgtm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://03du6uig40" path="res://floor.tscn" id="5_xhwsy"]
 [ext_resource type="PackedScene" uid="uid://cxr14p3p83cwt" path="res://collectibles/bribe.tscn" id="7_v4ra7"]
 [ext_resource type="PackedScene" uid="uid://6qmh4u6t0jit" path="res://spawner.tscn" id="8_bn30w"]
+[ext_resource type="Script" path="res://audio_manager.gd" id="9_fcfec"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_l1pic")
@@ -59,3 +60,6 @@ position = Vector2(505, 365)
 position = Vector2(296, 161)
 
 [node name="Spawner" parent="." instance=ExtResource("8_bn30w")]
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("9_fcfec")
