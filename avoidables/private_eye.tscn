@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4txopgtt2gh"]
+
+[ext_resource type="Texture2D" uid="uid://d2vg6y7m0nfy3" path="res://assets/avoidables/private_eye.png" id="1_7fbg6"]
+[ext_resource type="Script" path="res://avoidables/private_eye.gd" id="1_q5y4s"]
+
+[node name="PrivateEye" type="Area2D"]
+scale = Vector2(0.17, 0.17)
+script = ExtResource("1_q5y4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7fbg6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(7, -496, -52, -487, -101, -461, -134, -402, -166, -304, -273, -271, -205, -209, -257, 8, -361, 45, -433, 85, -471, 184, -425, 267, -357, 355, -244, 436, -107, 489, 35, 498, 158, 469, 272, 419, 336, 357, 466, 118, 465, 77, 431, 38, 388, 32, 343, 42, 244, 115, 183, 62, 121, -56, 155, -75, 186, -163, 223, -179, 255, -203, 276, -250, 262, -298, 176, -309, 169, -355, 155, -395, 132, -440, 96, -477, 51, -491)
