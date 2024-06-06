@@ -15,6 +15,8 @@ polygon = PackedVector2Array(78, 1, 80, 111, 41, 121, 3, 170, 224, 172, 224, -1)
 
 [node name="Pipe" type="Area2D" parent="."]
 position = Vector2(-1, 4)
+collision_layer = 0
+collision_mask = 0
 
 [node name="PipeCollision" type="CollisionShape2D" parent="Pipe"]
 position = Vector2(-65.014, -4.9675)
