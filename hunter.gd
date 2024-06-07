@@ -30,13 +30,20 @@ func _caught_crack() -> void:
 	Globals.crack_speed += 50
 
 func _on_area_entered(area: Area2D) -> void:
+	# crack
 	if area in get_tree().get_nodes_in_group("crack_rocks"):
 		Signals.caught_crack.emit()
-	if area in get_tree().get_nodes_in_group("bribes"):
+	# avoidables
+	elif area in get_tree().get_nodes_in_group("FBIs"):
+		Signals.caught_fbi.emit()
+	elif area in get_tree().get_nodes_in_group("private_eyes"):
+		Signals.caught_private_eye.emit()
+	# collectibles
+	elif area in get_tree().get_nodes_in_group("bribes"):
 		Signals.caught_bribe.emit()
-	if area in get_tree().get_nodes_in_group("guns"):
+	elif area in get_tree().get_nodes_in_group("guns"):
 		Signals.caught_gun.emit()
-	if area in get_tree().get_nodes_in_group("laptops"):
+	elif area in get_tree().get_nodes_in_group("laptops"):
 		Signals.caught_laptop.emit()
 	area.queue_free()
 
