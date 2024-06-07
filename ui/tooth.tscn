@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv36s046l2e46"]
+
+[ext_resource type="Texture2D" uid="uid://bdw0mlls2wj0p" path="res://assets/ui/broken_tooth_cartoon.png" id="1_wdddo"]
+
+[node name="Tooth" type="Sprite2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_wdddo")
