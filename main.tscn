@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xn3fhqndjnbv"]
+[gd_scene load_steps=11 format=3 uid="uid://xn3fhqndjnbv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l1pic"]
 [ext_resource type="PackedScene" uid="uid://cren0ljasgk6" path="res://hunter.tscn" id="2_bjgtm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxr14p3p83cwt" path="res://collectibles/bribe.tscn" id="7_v4ra7"]
 [ext_resource type="PackedScene" uid="uid://6qmh4u6t0jit" path="res://spawner.tscn" id="8_bn30w"]
 [ext_resource type="Script" path="res://audio_manager.gd" id="9_fcfec"]
+[ext_resource type="PackedScene" uid="uid://cky1myr1lbxg1" path="res://ui/teeth.tscn" id="10_u2p8x"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_l1pic")
@@ -22,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_jh3hi")
+expand_mode = 2
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -52,9 +54,10 @@ text = "3"
 script = ExtResource("4_u84wx")
 
 [node name="Floor" parent="." instance=ExtResource("5_xhwsy")]
+position = Vector2(403, 328)
 
 [node name="Hunter" parent="." instance=ExtResource("2_bjgtm")]
-position = Vector2(505, 365)
+position = Vector2(493, 279)
 
 [node name="Bribe" parent="." instance=ExtResource("7_v4ra7")]
 position = Vector2(296, 161)
@@ -63,3 +66,6 @@ position = Vector2(296, 161)
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("9_fcfec")
+
+[node name="Teeth" parent="." instance=ExtResource("10_u2p8x")]
+position = Vector2(-8, 335)
