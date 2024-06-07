@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2vg6y7m0nfy3" path="res://assets/avoidables/private_eye.png" id="1_7fbg6"]
 [ext_resource type="Script" path="res://avoidables/private_eye.gd" id="1_q5y4s"]
 
-[node name="PrivateEye" type="Area2D"]
+[node name="PrivateEye" type="Area2D" groups=["avoidables", "private_eyes"]]
 scale = Vector2(0.08, 0.08)
 script = ExtResource("1_q5y4s")
 
