@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dgldom4uc12b2" path="res://assets/collectibles/laptop_blank.png" id="2_qksf3"]
 
 [node name="Laptop" type="Area2D" groups=["collectibles", "laptops"]]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_862j1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

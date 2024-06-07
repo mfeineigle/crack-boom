@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://avoidables/fbi.gd" id="1_yr3m6"]
 
 [node name="FBI" type="Area2D" groups=["FBIs", "avoidables"]]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_yr3m6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

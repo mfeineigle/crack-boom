@@ -8,7 +8,7 @@ radius = 155.0
 height = 560.0
 
 [node name="Bribe" type="Area2D" groups=["bribes", "collectibles"]]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_hcuqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

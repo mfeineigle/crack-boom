@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7bgjajrub2m" path="res://assets/collectibles/gun.png" id="2_fvpce"]
 
 [node name="Gun" type="Area2D" groups=["collectibles", "guns"]]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.125, 0.125)
 script = ExtResource("1_w13ob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

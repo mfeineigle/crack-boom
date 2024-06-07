@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bd0opih1v0v5n" path="res://assets/joe_head.png" id="1_wa0wg"]
 
 [node name="Joe" type="Area2D" groups=["joes"]]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_o0kic")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
