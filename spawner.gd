@@ -10,10 +10,11 @@ func _ready() -> void:
 	Signals.spawn_joe.connect(_spawn_joe)
 
 func _spawn_joe() -> void:
-	var joe_spawn_points:Array = [50,115,180]
 	var joe = load("res://joe.tscn").instantiate()
-	var x = Globals.hunter_pos.x + randi_range(-400,400)
-	var y = joe_spawn_points[randi() % joe_spawn_points.size()]
+	var joe_spawn_x:Array = [0,800]
+	var x = joe_spawn_x[randi() % joe_spawn_x.size()]
+	var joe_spawn_y:Array = [50,115,180]
+	var y = joe_spawn_y[randi() % joe_spawn_y.size()]
 	joe.position = Vector2(x,y)
 	joe.speed = randi_range(50,500)
 	call_deferred("add_child", joe)
