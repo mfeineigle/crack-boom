@@ -7,23 +7,23 @@ extends Area2D
 @onready var pipe_collision: CollisionShape2D = $Pipe/PipeCollision
 
 var velocity = Vector2.ZERO
-var screensize = Vector2(1142, 648)
+var screensize = Vector2(800, 360)
 
 func _ready() -> void:
-	position.y = 550
+	position.y = 270
 	Signals.caught_crack.connect(_caught_crack)
 
 
 func _process(delta):
 	velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if velocity == Vector2.LEFT:
-		self.scale.x = 1
+		self.scale.x = 0.4
 	if velocity == Vector2.RIGHT:
-		self.scale.x = -1
+		self.scale.x = -0.4
 	
 	position += velocity * speed * delta
 	# clamp within the screensize
-	position.x = clamp(position.x, 110, screensize.x-100)
+	position.x = clamp(position.x, 55, screensize.x-55)
 	Globals.hunter_pos = position
 	
 func _caught_crack() -> void:

@@ -22,6 +22,11 @@ Globals="*res://globals.gd"
 Signals="*res://signals.gd"
 AudioManager="*res://audio_manager.gd"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=360
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
