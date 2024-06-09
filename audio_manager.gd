@@ -1,5 +1,6 @@
 extends Node
 
+var is_playing: bool = false
 var num_players = 8
 var bus = "master"
 
@@ -20,10 +21,13 @@ func _ready():
 func _on_stream_finished(stream):
 	# When finished playing a stream, make the player available again.
 	available.append(stream)
+	is_playing = false
 
 
 func play(sound_path):
-	queue.append(sound_path)
+	if not is_playing:
+		is_playing = true
+		queue.append(sound_path)
 
 
 func _process(delta):
