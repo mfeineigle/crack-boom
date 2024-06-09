@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://baw1r0dn708ye"]
+[gd_scene load_steps=5 format=3 uid="uid://baw1r0dn708ye"]
 
 [ext_resource type="Script" path="res://ui/score.gd" id="1_kmnd4"]
+[ext_resource type="Script" path="res://ui/SessionTime.gd" id="2_2msyq"]
 [ext_resource type="Script" path="res://ui/Teeth.gd" id="2_676dk"]
 [ext_resource type="PackedScene" uid="uid://cky1myr1lbxg1" path="res://ui/teeth_row.tscn" id="3_ry7jf"]
 
@@ -12,25 +13,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="ScoreHbox" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="ScoreHbox"]
+layout_mode = 2
+text = "Crack: "
+
+[node name="ScoreNumber" type="Label" parent="ScoreHbox"]
+layout_mode = 2
 text = "0"
 script = ExtResource("1_kmnd4")
 
-[node name="Teeth" type="Label" parent="."]
+[node name="TimerHbox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.5
+offset_right = 11.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="TimerHbox"]
+layout_mode = 2
+text = "Time: "
+
+[node name="SessionTime" type="Label" parent="TimerHbox"]
+layout_mode = 2
+text = "0.0"
+script = ExtResource("2_2msyq")
+
+[node name="SessionTimer" type="Timer" parent="TimerHbox"]
+wait_time = 0.1
+autostart = true
+
+[node name="TeethHbox" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -76.0
+offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Teeth" type="Label" parent="TeethHbox"]
+layout_mode = 2
+text = "Teeth: "
+
+[node name="TeethNumber" type="Label" parent="TeethHbox"]
+layout_mode = 2
 text = "27"
 script = ExtResource("2_676dk")
 
 [node name="TeethRow" parent="." instance=ExtResource("3_ry7jf")]
 position = Vector2(-20, 340)
+
+[connection signal="timeout" from="TimerHbox/SessionTimer" to="TimerHbox/SessionTime" method="_on_session_timer_timeout"]
