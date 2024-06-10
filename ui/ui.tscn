@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://baw1r0dn708ye"]
+[gd_scene load_steps=6 format=3 uid="uid://baw1r0dn708ye"]
 
 [ext_resource type="Script" path="res://ui/score.gd" id="1_kmnd4"]
 [ext_resource type="Script" path="res://ui/SessionTime.gd" id="2_2msyq"]
 [ext_resource type="Script" path="res://ui/Teeth.gd" id="2_676dk"]
+[ext_resource type="Script" path="res://ui/SessionTimer.gd" id="3_rpoen"]
 [ext_resource type="PackedScene" uid="uid://cky1myr1lbxg1" path="res://ui/teeth_row.tscn" id="3_ry7jf"]
 
 [node name="UI" type="Control"]
@@ -49,6 +50,7 @@ script = ExtResource("2_2msyq")
 [node name="SessionTimer" type="Timer" parent="TimerHbox"]
 wait_time = 0.1
 autostart = true
+script = ExtResource("3_rpoen")
 
 [node name="TeethHbox" type="HBoxContainer" parent="."]
 layout_mode = 1
