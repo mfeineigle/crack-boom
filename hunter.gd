@@ -20,6 +20,8 @@ func _process(delta):
 		self.scale.x = 0.4
 	if velocity == Vector2.RIGHT:
 		self.scale.x = -0.4
+	if Input.is_action_pressed("speed_up"):
+		Globals.crack_speed += 25
 	
 	position += velocity * speed * delta
 	# clamp within the screensize
@@ -27,7 +29,7 @@ func _process(delta):
 	Globals.hunter_pos = position
 	
 func _caught_crack() -> void:
-	Globals.crack_speed += 50
+	Globals.crack_speed += 25
 
 func _on_area_entered(area: Area2D) -> void:
 	# crack
