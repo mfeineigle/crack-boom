@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://fasdbfv0naj0"]
+
+[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_b7lye"]
+[ext_resource type="Script" path="res://ui/StartButton.gd" id="2_14mg8"]
+[ext_resource type="Script" path="res://ui/HighScoresButton.gd" id="3_y3ufn"]
+[ext_resource type="Script" path="res://ui/QuitButton.gd" id="4_to0sn"]
+
+[node name="TitleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -442.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="ButtonsVBox"]
+layout_mode = 2
+texture = ExtResource("1_b7lye")
+
+[node name="StartButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "Start"
+script = ExtResource("2_14mg8")
+
+[node name="HighScoresButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "High Scores"
+script = ExtResource("3_y3ufn")
+
+[node name="QuitButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_to0sn")
+
+[node name="TitleVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="cracktivision" type="Label" parent="TitleVBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 40
+text = "Cracktivision"
+
+[node name="crack-boom" type="Label" parent="TitleVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Crack-Boom!"
+
+[node name="cartridge" type="Label" parent="TitleVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Video Game Cartridge"
+
+[connection signal="button_down" from="ButtonsVBox/StartButton" to="ButtonsVBox/StartButton" method="_on_button_down"]
+[connection signal="button_down" from="ButtonsVBox/HighScoresButton" to="ButtonsVBox/HighScoresButton" method="_on_button_down"]
+[connection signal="button_down" from="ButtonsVBox/QuitButton" to="ButtonsVBox/QuitButton" method="_on_button_down"]
