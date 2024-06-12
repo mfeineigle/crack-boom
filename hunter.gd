@@ -5,6 +5,12 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hunter_collision: CollisionPolygon2D = $HunterCollision
 @onready var pipe_collision: CollisionShape2D = $Pipe/PipeCollision
+@onready var smoke_crack: AudioStreamPlayer2D = $SmokeCrack
+
+var is_smoking: bool = false
+var smoke_sfx = ["res://assets/audio/smoking_1.mp3",
+				"res://assets/audio/smoking_pre_2.mp3",
+				"res://assets/audio/they_fired_him.mp3"]
 
 var velocity = Vector2.ZERO
 var screensize = Vector2(800, 360)
@@ -29,6 +35,11 @@ func _process(delta):
 	Globals.hunter_pos = position
 	
 func _caught_crack() -> void:
+	if not is_smoking:
+		var choice: int = randi() % smoke_sfx.size()
+		smoke_crack.stream = load(smoke_sfx[choice])
+		is_smoking = true
+		smoke_crack.play()
 	Globals.crack_speed += 25
 
 func _on_area_entered(area: Area2D) -> void:
@@ -53,3 +64,7 @@ func _on_pipe_area_entered(area: Area2D) -> void:
 	print("direct hit")
 	Signals.caught_crack.emit()
 	area.queue_free()
+
+
+func _on_smoke_crack_finished() -> void:
+	is_smoking = false

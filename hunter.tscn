@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cren0ljasgk6"]
+[gd_scene load_steps=5 format=3 uid="uid://cren0ljasgk6"]
 
 [ext_resource type="Script" path="res://hunter.gd" id="1_e301r"]
 [ext_resource type="Texture2D" uid="uid://bcelepnsonus3" path="res://assets/hunter_head.png" id="1_qe08c"]
+[ext_resource type="AudioStream" uid="uid://bv2iejedgsbnp" path="res://assets/audio/smoking_1.mp3" id="3_fwv7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ry81i"]
 size = Vector2(43.681, 20)
@@ -28,5 +29,9 @@ shape = SubResource("RectangleShape2D_ry81i")
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_qe08c")
 
+[node name="SmokeCrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fwv7y")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="Pipe" to="." method="_on_pipe_area_entered"]
+[connection signal="finished" from="SmokeCrack" to="." method="_on_smoke_crack_finished"]
