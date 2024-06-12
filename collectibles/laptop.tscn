@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://46eywunnltdx"]
 
 [ext_resource type="Script" path="res://collectibles/laptop.gd" id="1_862j1"]
-[ext_resource type="Texture2D" uid="uid://dgldom4uc12b2" path="res://assets/collectibles/laptop_blank.png" id="2_qksf3"]
+[ext_resource type="Texture2D" uid="uid://dwam6x3odcyv7" path="res://assets/collectibles/laptop_commie_flag.png" id="2_l3tfb"]
 [ext_resource type="Texture2D" uid="uid://bl0yrdu3sfxa5" path="res://assets/collectibles/laptop_hooker.png" id="3_5fdrl"]
 
 [node name="Laptop" type="Area2D" groups=["collectibles", "laptops"]]
@@ -10,9 +10,9 @@ script = ExtResource("1_862j1")
 
 [node name="Sprites" type="Node2D" parent="."]
 
-[node name="LaptopSprite2D" type="Sprite2D" parent="Sprites"]
+[node name="CommieSprite2D" type="Sprite2D" parent="Sprites"]
 visible = false
-texture = ExtResource("2_qksf3")
+texture = ExtResource("2_l3tfb")
 
 [node name="HookerSprite2D" type="Sprite2D" parent="Sprites"]
 visible = false
