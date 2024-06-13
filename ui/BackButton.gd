@@ -1,7 +1,7 @@
 extends Button
 
 @onready var high_score_menu: Control = $"../.."
-@onready var title_menu = preload("res://ui/title_menu.tscn").instantiate()
+@onready var title_menu = load("res://ui/title_menu.tscn").instantiate()
 
 func _on_button_down() -> void:
 	# remove all children
