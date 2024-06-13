@@ -1,11 +1,9 @@
 extends Node
 
-@onready var score: Label = $UI/Score
-
 func _ready() -> void:
 	Signals.game_over.connect(_game_over)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
@@ -16,3 +14,9 @@ func _game_over() -> void:
 		joe.queue_free()
 	for hunter in get_tree().get_nodes_in_group("hunter"):
 		hunter.queue_free()
+	# free all children
+	for i in self.get_children():
+		i.queue_free()
+	# swap in new scene
+	var game_over_screen = load("res://ui/game_over.tscn").instantiate()
+	call_deferred("replace_by", game_over_screen)
