@@ -12,3 +12,5 @@ texture = ExtResource("2_fvpce")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["guns"]]
 polygon = PackedVector2Array(-188, 104, -180, 56, -156, -8, -96, -124, 180, -124, 192, -60, 96, -56, 76, -8, 40, 32, -16, 48, -60, 44, -112, 136, -152, 140)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
