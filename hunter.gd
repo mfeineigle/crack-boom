@@ -10,7 +10,7 @@ extends Area2D
 var is_smoking: bool = false
 var smoke_sfx = ["res://assets/audio/smoking_1.mp3",
 				"res://assets/audio/smoking_pre_2.mp3",
-				"res://assets/audio/they_fired_him.mp3"]
+				]
 
 var velocity = Vector2.ZERO
 var screensize = Vector2(800, 360)
