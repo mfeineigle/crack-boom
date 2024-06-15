@@ -1,7 +1,7 @@
 extends Node2D
 
 # control spawns
-enum collectibles {LAPTOP, GUN, BRIBE, RANDOM, NONE}
+enum collectibles {LAPTOP, GUN, BRIBE, NARCAN, RANDOM, NONE}
 @export var collectible_spawn:collectibles = collectibles.RANDOM
 enum avoidables {FBI, PRIVATE_EYE, RANDOM, NONE}
 @export var avoidable_spawn:avoidables = avoidables.RANDOM
@@ -49,6 +49,8 @@ func choose_collectable() -> void:
 		spawn_collectible("res://collectibles/gun.tscn")
 	elif choice == 2:
 		spawn_collectible("res://collectibles/bribe.tscn")
+	elif choice == 3:
+		spawn_collectible("res://collectibles/narcan.tscn")
 
 func spawn_collectible(col_path: String) -> void:
 	var col = load(col_path).instantiate()

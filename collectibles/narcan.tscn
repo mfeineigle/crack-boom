@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://donlio2uddh7w"]
+
+[ext_resource type="Script" path="res://collectibles/narcan.gd" id="1_cgynf"]
+[ext_resource type="Texture2D" uid="uid://ddbrytwwk7to3" path="res://assets/collectibles/narcan_spray.png" id="1_v4mkp"]
+
+[node name="Narcan" type="Area2D"]
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_cgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v4mkp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-129, 182, -123, 1, -39, -11, -34, -147, -29, -176, -21, -186, -7, -194, 13, -192, 28, -172, 38, -9, 121, -2, 129, 178, 85, 183, -91, 186)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
