@@ -1,5 +1,11 @@
 extends Node2D
 
+# control spawns
+enum collectibles {LAPTOP, GUN, BRIBE, RANDOM, NONE}
+@export var collectible_spawn:collectibles = collectibles.RANDOM
+enum avoidables {FBI, PRIVATE_EYE, RANDOM, NONE}
+@export var avoidable_spawn:avoidables = avoidables.RANDOM
+
 @onready var spawn_path: PathFollow2D = $Path2D/SpawnPath
 @onready var crack_timer: Timer = $CrackTimer
 @onready var avoidable_timer: Timer = $AvoidableTimer
@@ -35,6 +41,8 @@ func _on_collectible_timer_timeout() -> void:
 
 func choose_collectable() -> void:
 	var choice:int = randi() % 3
+	if collectible_spawn != collectibles.RANDOM:
+		choice = collectible_spawn
 	if choice == 0:
 		spawn_collectible("res://collectibles/laptop.tscn")
 	elif choice == 1:
@@ -71,6 +79,8 @@ func _on_avoidable_timer_timeout() -> void:
 
 func choose_avoidable() -> void:
 	var choice:int = randi() % 2
+	if avoidable_spawn != avoidables.RANDOM:
+		choice = avoidable_spawn
 	if choice == 0:
 		spawn_collectible("res://avoidables/fbi.tscn")
 	if choice == 1:
