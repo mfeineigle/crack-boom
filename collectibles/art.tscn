@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmendydl5kisg"]
+
+[ext_resource type="Texture2D" uid="uid://bj3lnui3aj5de" path="res://assets/collectibles/hunter_art.jpg" id="1_3s0kr"]
+[ext_resource type="Script" path="res://collectibles/art.gd" id="1_vw58n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmtyh"]
+size = Vector2(150, 200)
+
+[node name="Art" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_vw58n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3s0kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mmtyh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
