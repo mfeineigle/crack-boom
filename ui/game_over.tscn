@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://di0qv1p5lelhl"]
+[gd_scene load_steps=6 format=3 uid="uid://di0qv1p5lelhl"]
 
 [ext_resource type="Script" path="res://ui/game_over.gd" id="1_akgvb"]
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_fu111"]
+[ext_resource type="Script" path="res://ui/RestartButton.gd" id="3_4iojp"]
+[ext_resource type="Script" path="res://ui/GameOverHighScoresButton.gd" id="3_wdurp"]
+[ext_resource type="Script" path="res://ui/QuitButton.gd" id="5_jvoah"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -21,7 +24,37 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fu111")
 
-[node name="GameOverLabel" type="Label" parent="."]
+[node name="ScoreHbox" type="HBoxContainer" parent="."]
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="ScoreHbox"]
+layout_mode = 2
+text = "Crack: "
+
+[node name="ScoreNumber" type="Label" parent="ScoreHbox"]
+layout_mode = 2
+text = "0"
+
+[node name="TimerHbox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -11.5
+offset_right = 11.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="TimerHbox"]
+layout_mode = 2
+text = "Time: "
+
+[node name="SessionTime" type="Label" parent="TimerHbox"]
+layout_mode = 2
+text = "0.0"
+
+[node name="CenterVBox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,9 +62,55 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -43.5
-offset_top = -11.5
+offset_top = -38.5
 offset_right = 43.5
-offset_bottom = 11.5
+offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CenterVBox"]
+layout_mode = 2
 text = "Game Over"
+
+[node name="HighScoreVBox" type="VBoxContainer" parent="CenterVBox"]
+layout_mode = 2
+
+[node name="OnlineHighScore" type="Label" parent="CenterVBox/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1234"
+
+[node name="LocalHighScore" type="Label" parent="CenterVBox/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "555"
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RestartButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "Restart
+"
+script = ExtResource("3_4iojp")
+
+[node name="HighScoresButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "High Scores"
+script = ExtResource("3_wdurp")
+
+[node name="QuitButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("5_jvoah")
+
+[connection signal="button_down" from="ButtonsVBox/RestartButton" to="ButtonsVBox/RestartButton" method="_on_button_down"]
+[connection signal="button_down" from="ButtonsVBox/HighScoresButton" to="ButtonsVBox/HighScoresButton" method="_on_button_down"]
+[connection signal="button_down" from="ButtonsVBox/QuitButton" to="ButtonsVBox/QuitButton" method="_on_button_down"]
