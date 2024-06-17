@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_b7lye"]
 [ext_resource type="Script" path="res://ui/StartButton.gd" id="2_14mg8"]
-[ext_resource type="Script" path="res://ui/HighScoresButton.gd" id="3_pj5mo"]
+[ext_resource type="Script" path="res://ui/TitleHighScoresButton.gd" id="3_pj5mo"]
 [ext_resource type="Script" path="res://ui/QuitButton.gd" id="4_to0sn"]
 
 [node name="TitleMenu" type="Control"]
