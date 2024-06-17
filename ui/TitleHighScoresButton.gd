@@ -8,4 +8,5 @@ func _on_button_down() -> void:
 	for i in title_menu.get_children():
 		i.queue_free()
 	# swap in main scene
+	print("title hs", get_tree())
 	title_menu.replace_by(high_score_menu)
