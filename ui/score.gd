@@ -20,8 +20,9 @@ func _ready() -> void:
 	
 # crack
 func _caught_crack() -> void:
-	print("caught crack")
-	text = str(int(text) + 1)
+	Globals.score += 1
+	text = str(Globals.score)
+
 func _missed_crack() -> void:
 	print("missed crack")
 	
