@@ -20,6 +20,7 @@ func _ready():
 
 func _on_stream_finished(stream):
 	# When finished playing a stream, make the player available again.
+	available.pop_front()
 	available.append(stream)
 	is_playing = false
 
@@ -30,9 +31,16 @@ func play(sound_path):
 		queue.append(sound_path)
 
 
+func stop_all() -> void:
+	for i in available:
+		i.playing = false
+	available.pop_front()
+	is_playing = false
+
+
 func _process(_delta):
 	# Play a queued sound if any players are available.
 	if queue.size() > 0 and available.size() > 0:
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
-		available.pop_front()
+		#available.pop_front()

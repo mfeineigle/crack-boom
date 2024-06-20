@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://di0qv1p5lelhl"]
+[gd_scene load_steps=7 format=3 uid="uid://di0qv1p5lelhl"]
 
 [ext_resource type="Script" path="res://ui/game_over/game_over.gd" id="1_pibrr"]
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="2_rdr31"]
 [ext_resource type="Script" path="res://ui/game_over/RestartButton.gd" id="3_1x0a4"]
 [ext_resource type="Script" path="res://ui/game_over/GameOverHighScoresButton.gd" id="4_62ged"]
 [ext_resource type="Script" path="res://ui/QuitButton.gd" id="5_23yum"]
+[ext_resource type="AudioStream" uid="uid://bbhdxqa4onnuu" path="res://assets/audio/biden_no_teeth_retarded_ice_cream_1.mp3" id="6_shkyy"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -104,6 +105,10 @@ script = ExtResource("4_62ged")
 layout_mode = 2
 text = "Quit"
 script = ExtResource("5_23yum")
+
+[node name="GameOverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_shkyy")
+volume_db = 5.0
 
 [connection signal="button_down" from="Background/ButtonsVBox/RestartButton" to="Background/ButtonsVBox/RestartButton" method="_on_button_down"]
 [connection signal="button_down" from="Background/ButtonsVBox/HighScoresButton" to="Background/ButtonsVBox/HighScoresButton" method="_on_button_down"]
