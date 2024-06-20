@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _spawn_joe() -> void:
-	var joe = load("res://joe.tscn").instantiate()
+	var joe = load("res://characters/joe.tscn").instantiate()
 	var joe_spawn_x:Array = [0,800]
 	var x = joe_spawn_x[randi() % joe_spawn_x.size()]
 	var joe_spawn_y:Array = [50,115,180]

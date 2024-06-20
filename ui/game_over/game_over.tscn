@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://di0qv1p5lelhl"]
 
-[ext_resource type="Script" path="res://ui/game_over.gd" id="1_akgvb"]
-[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_fu111"]
-[ext_resource type="Script" path="res://ui/RestartButton.gd" id="3_4iojp"]
-[ext_resource type="Script" path="res://ui/GameOverHighScoresButton.gd" id="3_wdurp"]
-[ext_resource type="Script" path="res://ui/QuitButton.gd" id="5_jvoah"]
+[ext_resource type="Script" path="res://ui/game_over/game_over.gd" id="1_pibrr"]
+[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="2_rdr31"]
+[ext_resource type="Script" path="res://ui/game_over/RestartButton.gd" id="3_1x0a4"]
+[ext_resource type="Script" path="res://ui/game_over/GameOverHighScoresButton.gd" id="4_62ged"]
+[ext_resource type="Script" path="res://ui/QuitButton.gd" id="5_23yum"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_akgvb")
+script = ExtResource("1_pibrr")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 offset_right = 800.0
 offset_bottom = 360.0
-texture = ExtResource("1_fu111")
+texture = ExtResource("2_rdr31")
 
 [node name="ScoreHbox" type="HBoxContainer" parent="Background"]
 layout_mode = 0
@@ -93,17 +93,17 @@ grow_vertical = 0
 layout_mode = 2
 text = "Restart
 "
-script = ExtResource("3_4iojp")
+script = ExtResource("3_1x0a4")
 
 [node name="HighScoresButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "High Scores"
-script = ExtResource("3_wdurp")
+script = ExtResource("4_62ged")
 
 [node name="QuitButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "Quit"
-script = ExtResource("5_jvoah")
+script = ExtResource("5_23yum")
 
 [connection signal="button_down" from="Background/ButtonsVBox/RestartButton" to="Background/ButtonsVBox/RestartButton" method="_on_button_down"]
 [connection signal="button_down" from="Background/ButtonsVBox/HighScoresButton" to="Background/ButtonsVBox/HighScoresButton" method="_on_button_down"]

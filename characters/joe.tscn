@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cayddk2x3nj8"]
 
-[ext_resource type="Script" path="res://joe.gd" id="1_o0kic"]
+[ext_resource type="Script" path="res://characters/joe.gd" id="1_o0kic"]
 [ext_resource type="Texture2D" uid="uid://bd0opih1v0v5n" path="res://assets/joe_head.png" id="1_wa0wg"]
 
 [node name="Joe" type="Area2D" groups=["joes"]]

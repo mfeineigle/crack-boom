@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6qmh4u6t0jit"]
 
-[ext_resource type="Script" path="res://spawner.gd" id="1_3vc31"]
+[ext_resource type="Script" path="res://main/spawner.gd" id="1_3vc31"]
 
 [sub_resource type="Curve2D" id="Curve2D_bhwqx"]
 _data = {

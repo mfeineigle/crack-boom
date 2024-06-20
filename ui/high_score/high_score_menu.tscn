@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkwm0kt8s0mb6"]
 
-[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_ysbh4"]
-[ext_resource type="Script" path="res://ui/BackButton.gd" id="2_vfsi5"]
+[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_hedq8"]
+[ext_resource type="Script" path="res://ui/high_score/BackButton.gd" id="2_psk8l"]
 
 [node name="HighScoreMenu" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_ysbh4")
+texture = ExtResource("1_hedq8")
 
 [node name="TitleLabel" type="Label" parent="TextureRect"]
 layout_mode = 1
@@ -42,6 +42,6 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back to Menu"
-script = ExtResource("2_vfsi5")
+script = ExtResource("2_psk8l")
 
 [connection signal="button_down" from="TextureRect/BackButton" to="TextureRect/BackButton" method="_on_button_down"]

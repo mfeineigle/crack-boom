@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://xn3fhqndjnbv"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_7odyf"]
+[ext_resource type="Texture2D" uid="uid://cfckh0jwsy5pt" path="res://assets/background/whitehouse.jpg" id="2_sd82w"]
+[ext_resource type="PackedScene" uid="uid://baw1r0dn708ye" path="res://ui/main/ui.tscn" id="3_5t4r7"]
+[ext_resource type="PackedScene" uid="uid://03du6uig40" path="res://main/floor.tscn" id="4_fth4q"]
+[ext_resource type="PackedScene" uid="uid://cren0ljasgk6" path="res://characters/hunter.tscn" id="5_ijiv8"]
+[ext_resource type="PackedScene" uid="uid://cxr14p3p83cwt" path="res://collectibles/bribe.tscn" id="6_dnnj6"]
+[ext_resource type="PackedScene" uid="uid://6qmh4u6t0jit" path="res://main/spawner.tscn" id="7_r2g7f"]
+[ext_resource type="Script" path="res://globals/audio_manager.gd" id="8_yf8ua"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7odyf")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.27451)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_sd82w")
+expand_mode = 2
+
+[node name="UI" parent="." instance=ExtResource("3_5t4r7")]
+
+[node name="Floor" parent="." instance=ExtResource("4_fth4q")]
+position = Vector2(403, 328)
+
+[node name="Hunter" parent="." instance=ExtResource("5_ijiv8")]
+position = Vector2(493, 279)
+
+[node name="Bribe" parent="." instance=ExtResource("6_dnnj6")]
+position = Vector2(296, 161)
+
+[node name="Spawner" parent="." instance=ExtResource("7_r2g7f")]
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("8_yf8ua")

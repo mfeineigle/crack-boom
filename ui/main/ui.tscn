@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://baw1r0dn708ye"]
 
-[ext_resource type="Script" path="res://ui/score.gd" id="1_kmnd4"]
-[ext_resource type="Script" path="res://ui/SessionTime.gd" id="2_2msyq"]
-[ext_resource type="Script" path="res://ui/Teeth.gd" id="2_676dk"]
-[ext_resource type="Script" path="res://ui/SessionTimer.gd" id="3_rpoen"]
-[ext_resource type="PackedScene" uid="uid://cky1myr1lbxg1" path="res://ui/teeth_row.tscn" id="3_ry7jf"]
+[ext_resource type="Script" path="res://ui/main/score.gd" id="1_7piyy"]
+[ext_resource type="Script" path="res://ui/main/SessionTime.gd" id="2_aploi"]
+[ext_resource type="Script" path="res://ui/main/SessionTimer.gd" id="3_he4b7"]
+[ext_resource type="PackedScene" uid="uid://cky1myr1lbxg1" path="res://ui/main/teeth_row.tscn" id="3_ry7jf"]
+[ext_resource type="Script" path="res://ui/main/Teeth.gd" id="4_eviri"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -26,7 +26,7 @@ text = "Crack: "
 [node name="ScoreNumber" type="Label" parent="ScoreHbox"]
 layout_mode = 2
 text = "0"
-script = ExtResource("1_kmnd4")
+script = ExtResource("1_7piyy")
 
 [node name="TimerHbox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -45,12 +45,12 @@ text = "Time: "
 [node name="SessionTime" type="Label" parent="TimerHbox"]
 layout_mode = 2
 text = "0.0"
-script = ExtResource("2_2msyq")
+script = ExtResource("2_aploi")
 
 [node name="SessionTimer" type="Timer" parent="TimerHbox"]
 wait_time = 0.1
 autostart = true
-script = ExtResource("3_rpoen")
+script = ExtResource("3_he4b7")
 
 [node name="TeethHbox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -68,7 +68,7 @@ text = "Teeth: "
 [node name="TeethNumber" type="Label" parent="TeethHbox"]
 layout_mode = 2
 text = "27"
-script = ExtResource("2_676dk")
+script = ExtResource("4_eviri")
 
 [node name="TeethRow" parent="." instance=ExtResource("3_ry7jf")]
 position = Vector2(-20, 340)

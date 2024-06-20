@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cren0ljasgk6"]
 
-[ext_resource type="Script" path="res://hunter.gd" id="1_e301r"]
+[ext_resource type="Script" path="res://characters/hunter.gd" id="1_e301r"]
 [ext_resource type="Texture2D" uid="uid://bcelepnsonus3" path="res://assets/hunter_head.png" id="1_qe08c"]
 [ext_resource type="AudioStream" uid="uid://bv2iejedgsbnp" path="res://assets/audio/smoking_1.mp3" id="3_fwv7y"]
 

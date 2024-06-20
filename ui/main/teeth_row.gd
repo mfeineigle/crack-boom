@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _create_teeth() -> void:
 	for i in range(1,28):
-		var t = load("res://ui/tooth.tscn").instantiate()
+		var t = load("res://ui/main/tooth.tscn").instantiate()
 		t.position.x = 30*i
 		unbroken_teeth[i] = t
 		add_child(t)

@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func _game_over() -> void:
-	Signals.level_changed.emit("res://ui/game_over.tscn")
+	Signals.level_changed.emit("res://ui/game_over/game_over.tscn")

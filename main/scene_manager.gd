@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	#Utils.initial_user_folder_setup()
 	Signals.level_changed.connect(goto_scene)
-	var init_scene= ResourceLoader.load("res://ui/title_menu.tscn")
+	var init_scene= ResourceLoader.load("res://ui/title_menu/title_menu.tscn")
 	current_scene.add_child(init_scene.instantiate())
 	Globals.current_level = current_scene.get_child(0)
 
