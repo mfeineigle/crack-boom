@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://03du6uig40" path="res://floor.tscn" id="5_xhwsy"]
 [ext_resource type="PackedScene" uid="uid://cxr14p3p83cwt" path="res://collectibles/bribe.tscn" id="7_v4ra7"]
 [ext_resource type="PackedScene" uid="uid://6qmh4u6t0jit" path="res://spawner.tscn" id="8_bn30w"]
-[ext_resource type="Script" path="res://audio_manager.gd" id="9_fcfec"]
+[ext_resource type="Script" path="res://globals/audio_manager.gd" id="9_fcfec"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_l1pic")

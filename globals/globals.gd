@@ -1,6 +1,7 @@
 extends Node
 
 var screensize = Vector2(800, 360)
+var current_level
 
 var default_crack_speed:int = 100
 var crack_speed:int = 100

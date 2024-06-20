@@ -21,4 +21,5 @@ signal missed_laptop
 signal caught_crack
 signal missed_crack
 
+signal level_changed
 signal game_over
