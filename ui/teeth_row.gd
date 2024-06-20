@@ -18,6 +18,6 @@ func _break_tooth() -> void:
 	var random_key = unbroken_teeth.keys()[randi() % unbroken_teeth.size()]
 	unbroken_teeth[random_key].queue_free()
 	unbroken_teeth.erase(random_key)
-	if unbroken_teeth.size() <= 0:
+	if unbroken_teeth.size() <= 24:
 		Signals.game_over.emit()
 		
