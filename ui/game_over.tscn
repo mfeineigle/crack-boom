@@ -8,53 +8,47 @@
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_akgvb")
 
-[node name="TextureRectBG" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 800.0
+offset_bottom = 360.0
 texture = ExtResource("1_fu111")
 
-[node name="ScoreHbox" type="HBoxContainer" parent="."]
+[node name="ScoreHbox" type="HBoxContainer" parent="Background"]
+layout_mode = 0
 offset_right = 66.0
 offset_bottom = 40.0
 
-[node name="Score" type="Label" parent="ScoreHbox"]
+[node name="Score" type="Label" parent="Background/ScoreHbox"]
 layout_mode = 2
 text = "Crack: "
 
-[node name="ScoreNumber" type="Label" parent="ScoreHbox"]
+[node name="ScoreNumber" type="Label" parent="Background/ScoreHbox"]
 layout_mode = 2
 text = "0"
 
-[node name="TimerHbox" type="HBoxContainer" parent="."]
+[node name="TimerHbox" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -11.5
-offset_right = 11.5
+offset_left = -37.0
+offset_right = 37.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Time" type="Label" parent="TimerHbox"]
+[node name="Time" type="Label" parent="Background/TimerHbox"]
 layout_mode = 2
 text = "Time: "
 
-[node name="SessionTime" type="Label" parent="TimerHbox"]
+[node name="SessionTime" type="Label" parent="Background/TimerHbox"]
 layout_mode = 2
 text = "0.0"
 
-[node name="CenterVBox" type="VBoxContainer" parent="."]
+[node name="CenterVBox" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -68,24 +62,24 @@ offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOverLabel" type="Label" parent="CenterVBox"]
+[node name="GameOverLabel" type="Label" parent="Background/CenterVBox"]
 layout_mode = 2
 text = "Game Over"
 
-[node name="HighScoreVBox" type="VBoxContainer" parent="CenterVBox"]
+[node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterVBox"]
 layout_mode = 2
 
-[node name="OnlineHighScore" type="Label" parent="CenterVBox/HighScoreVBox"]
+[node name="OnlineHighScore" type="Label" parent="Background/CenterVBox/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "1234"
 
-[node name="LocalHighScore" type="Label" parent="CenterVBox/HighScoreVBox"]
+[node name="LocalHighScore" type="Label" parent="Background/CenterVBox/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "555"
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+[node name="ButtonsVBox" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -95,22 +89,22 @@ offset_top = -101.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="RestartButton" type="Button" parent="ButtonsVBox"]
+[node name="RestartButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "Restart
 "
 script = ExtResource("3_4iojp")
 
-[node name="HighScoresButton" type="Button" parent="ButtonsVBox"]
+[node name="HighScoresButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "High Scores"
 script = ExtResource("3_wdurp")
 
-[node name="QuitButton" type="Button" parent="ButtonsVBox"]
+[node name="QuitButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("5_jvoah")
 
-[connection signal="button_down" from="ButtonsVBox/RestartButton" to="ButtonsVBox/RestartButton" method="_on_button_down"]
-[connection signal="button_down" from="ButtonsVBox/HighScoresButton" to="ButtonsVBox/HighScoresButton" method="_on_button_down"]
-[connection signal="button_down" from="ButtonsVBox/QuitButton" to="ButtonsVBox/QuitButton" method="_on_button_down"]
+[connection signal="button_down" from="Background/ButtonsVBox/RestartButton" to="Background/ButtonsVBox/RestartButton" method="_on_button_down"]
+[connection signal="button_down" from="Background/ButtonsVBox/HighScoresButton" to="Background/ButtonsVBox/HighScoresButton" method="_on_button_down"]
+[connection signal="button_down" from="Background/ButtonsVBox/QuitButton" to="Background/ButtonsVBox/QuitButton" method="_on_button_down"]

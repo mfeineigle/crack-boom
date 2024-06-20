@@ -1,7 +1,9 @@
 extends Control
 
-@onready var score_number: Label = $ScoreHbox/ScoreNumber
-@onready var session_time: Label = $TimerHbox/SessionTime
+
+@onready var score_number: Label = $Background/ScoreHbox/ScoreNumber
+@onready var session_time: Label = $Background/TimerHbox/SessionTime
+
 
 func _ready() -> void:
 	AudioManager.play("res://assets/audio/biden_no_teeth_retarded_ice_cream_1.mp3")
