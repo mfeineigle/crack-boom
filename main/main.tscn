@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xn3fhqndjnbv"]
+[gd_scene load_steps=8 format=3 uid="uid://xn3fhqndjnbv"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_7odyf"]
 [ext_resource type="Texture2D" uid="uid://cfckh0jwsy5pt" path="res://assets/background/whitehouse.jpg" id="2_sd82w"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cren0ljasgk6" path="res://characters/hunter.tscn" id="5_ijiv8"]
 [ext_resource type="PackedScene" uid="uid://cxr14p3p83cwt" path="res://collectibles/bribe.tscn" id="6_dnnj6"]
 [ext_resource type="PackedScene" uid="uid://6qmh4u6t0jit" path="res://main/spawner.tscn" id="7_r2g7f"]
-[ext_resource type="Script" path="res://globals/audio_manager.gd" id="8_yf8ua"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7odyf")
@@ -35,6 +34,3 @@ position = Vector2(493, 279)
 position = Vector2(296, 161)
 
 [node name="Spawner" parent="." instance=ExtResource("7_r2g7f")]
-
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("8_yf8ua")
