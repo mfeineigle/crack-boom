@@ -15,9 +15,10 @@ func _create_teeth() -> void:
 		
 func _break_tooth() -> void:
 	print(unbroken_teeth.size())
-	var random_key = unbroken_teeth.keys()[randi() % unbroken_teeth.size()]
-	unbroken_teeth[random_key].queue_free()
-	unbroken_teeth.erase(random_key)
-	if unbroken_teeth.size() <= 24:
+	for i in range(9):
+		var random_key = unbroken_teeth.keys()[randi() % unbroken_teeth.size()]
+		unbroken_teeth[random_key].queue_free()
+		unbroken_teeth.erase(random_key)
+	if unbroken_teeth.size() <= 0:
 		Signals.game_over.emit()
 		
