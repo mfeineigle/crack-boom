@@ -7,3 +7,4 @@ func _ready() -> void:
 func _on_session_timer_timeout() -> void:
 	Globals.time_alive = Utils.round_to_dec(Globals.time_alive +0.1, 1)
 	text = "%0.1f" % (Globals.time_alive)
+	Globals.crack_speed += 5

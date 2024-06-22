@@ -40,7 +40,7 @@ func _caught_crack() -> void:
 		smoke_crack.stream = load(smoke_sfx[choice])
 		is_smoking = true
 		smoke_crack.play()
-	Globals.crack_speed += 25
+	#Globals.crack_speed += 25
 
 func _on_area_entered(area: Area2D) -> void:
 	# crack

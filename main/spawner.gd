@@ -35,12 +35,12 @@ func _spawn_joe() -> void:
 
 # COLLECTIBLES
 func _on_collectible_timer_timeout() -> void:
-	collectible_timer.wait_time *= 0.95
+	#collectible_timer.wait_time *= 0.99
 	collectible_timer.start()
 	choose_collectable()
 
 func choose_collectable() -> void:
-	var choice:int = randi() % 3
+	var choice:int = randi() % 5
 	if collectible_spawn != collectibles.RANDOM:
 		choice = collectible_spawn
 	if choice == 0:
@@ -58,7 +58,7 @@ func spawn_collectible(col_path: String) -> void:
 	var col = load(col_path).instantiate()
 	spawn_path.progress_ratio = randf()
 	col.position = spawn_path.global_position
-	col.speed = Globals.crack_speed
+	col.speed = Globals.collectible_speed
 	add_child(col)
 
 func _reset_collectible_timer() -> void:
@@ -67,7 +67,7 @@ func _reset_collectible_timer() -> void:
 
 # CRACK
 func _on_crack_timer_timeout() -> void:
-	crack_timer.wait_time *= 0.95
+	crack_timer.wait_time *= 0.98
 	crack_timer.start()
 	spawn_collectible("res://collectibles/crack_rock.tscn")
 
