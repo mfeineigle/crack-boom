@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://di0qv1p5lelhl"]
+[gd_scene load_steps=9 format=3 uid="uid://di0qv1p5lelhl"]
 
 [ext_resource type="Script" path="res://ui/game_over/game_over.gd" id="1_pibrr"]
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="2_rdr31"]
 [ext_resource type="Script" path="res://ui/game_over/RestartButton.gd" id="3_1x0a4"]
+[ext_resource type="Texture2D" uid="uid://6wlanxmd5mc7" path="res://assets/ui/game_over_joe_ice_cream.jpg" id="3_a0r2r"]
+[ext_resource type="Texture2D" uid="uid://b3fg03riv2c7e" path="res://assets/ui/game_over_hunter.png" id="3_tvie8"]
 [ext_resource type="Script" path="res://ui/game_over/GameOverHighScoresButton.gd" id="4_62ged"]
 [ext_resource type="Script" path="res://ui/QuitButton.gd" id="5_23yum"]
 [ext_resource type="AudioStream" uid="uid://bbhdxqa4onnuu" path="res://assets/audio/biden_no_teeth_retarded_ice_cream_1.mp3" id="6_shkyy"]
@@ -49,36 +51,50 @@ text = "Time: "
 layout_mode = 2
 text = "0.0"
 
-[node name="CenterVBox" type="VBoxContainer" parent="Background"]
+[node name="CenterHBox" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.5
+offset_left = -74.0
 offset_top = -38.5
-offset_right = 43.5
+offset_right = 74.0
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOverLabel" type="Label" parent="Background/CenterVBox"]
+[node name="HunterFaceDown" type="TextureRect" parent="Background/CenterHBox"]
+layout_mode = 2
+texture = ExtResource("3_tvie8")
+expand_mode = 2
+
+[node name="GameOverVBox" type="VBoxContainer" parent="Background/CenterHBox"]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
 text = "Game Over"
 
-[node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterVBox"]
+[node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
 
-[node name="OnlineHighScore" type="Label" parent="Background/CenterVBox/HighScoreVBox"]
+[node name="OnlineHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "1234"
 
-[node name="LocalHighScore" type="Label" parent="Background/CenterVBox/HighScoreVBox"]
+[node name="LocalHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "555"
+
+[node name="BidenIceCream" type="TextureRect" parent="Background/CenterHBox"]
+layout_mode = 2
+texture = ExtResource("3_a0r2r")
+expand_mode = 3
+flip_h = true
 
 [node name="ButtonsVBox" type="VBoxContainer" parent="Background"]
 layout_mode = 1
