@@ -2,7 +2,9 @@ extends Area2D
 
 func _on_area_entered(area: Area2D) -> void:
 	# collectibles
-	if area in get_tree().get_nodes_in_group("laptops"):
+	if area in get_tree().get_nodes_in_group("arts"):
+		Signals.missed_art.emit()
+	elif area in get_tree().get_nodes_in_group("laptops"):
 		Signals.missed_laptop.emit()
 	elif area in get_tree().get_nodes_in_group("guns"):
 		Signals.missed_gun.emit()
@@ -20,5 +22,4 @@ func _on_area_entered(area: Area2D) -> void:
 		for rock in get_tree().get_nodes_in_group("crack_rocks"):
 			rock.queue_free()
 		Signals.missed_crack.emit()
-		Globals.crack_speed = Globals.default_crack_speed
 	area.queue_free()
