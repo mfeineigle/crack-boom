@@ -6,8 +6,7 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	var targets:Array = []
-	targets.append(get_tree().get_nodes_in_group("hunter"))
-	targets.append(get_tree().get_nodes_in_group("joes"))
-	if area in targets:
+	if area in get_tree().get_nodes_in_group("hunter"):
+		AudioManager.play("res://assets/audio/gun_lying_around.mp3")
+	if area in get_tree().get_nodes_in_group("joes"):
 		AudioManager.play("res://assets/audio/gun_lying_around.mp3")
