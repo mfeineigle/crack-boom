@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmtyh"]
 size = Vector2(150, 200)
 
-[node name="Art" type="Area2D"]
+[node name="Art" type="Area2D" groups=["arts"]]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_vw58n")
 
