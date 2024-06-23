@@ -10,6 +10,7 @@ point_count = 2
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_3vc31")
+collectible_spawn = 4
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_bhwqx")
@@ -28,7 +29,7 @@ one_shot = true
 autostart = true
 
 [node name="CollectibleTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 

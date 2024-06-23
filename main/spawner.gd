@@ -13,6 +13,7 @@ enum avoidables {FBI, PRIVATE_EYE, RANDOM, NONE}
 
 func _ready() -> void:
 	Signals.missed_crack.connect(_reset_crack_timer)
+	Signals.missed_art.connect(_reset_collectible_timer)
 	Signals.missed_bribe.connect(_reset_collectible_timer)
 	Signals.missed_gun.connect(_reset_collectible_timer)
 	Signals.missed_laptop.connect(_reset_collectible_timer)
@@ -35,7 +36,8 @@ func _spawn_joe() -> void:
 
 # COLLECTIBLES
 func _on_collectible_timer_timeout() -> void:
-	#collectible_timer.wait_time *= 0.99
+	Globals.collectible_spawn_rate *= 0.99
+	collectible_timer.wait_time = clamp(Globals.collectible_spawn_rate, 0.35, 5.0)
 	collectible_timer.start()
 	choose_collectable()
 
@@ -58,27 +60,28 @@ func spawn_collectible(col_path: String) -> void:
 	var col = load(col_path).instantiate()
 	spawn_path.progress_ratio = randf()
 	col.position = spawn_path.global_position
-	col.speed = Globals.collectible_speed
 	add_child(col)
 
 func _reset_collectible_timer() -> void:
-	collectible_timer.wait_time = 1
+	Globals.collectible_spawn_rate = 2.5
 
 
 # CRACK
 func _on_crack_timer_timeout() -> void:
-	crack_timer.wait_time *= 0.98
+	Globals.crack_spawn_rate *= 0.98
+	crack_timer.wait_time = clamp(Globals.crack_spawn_rate, 0.35, 1.0)
 	crack_timer.start()
 	spawn_collectible("res://collectibles/crack_rock.tscn")
 
 func _reset_crack_timer() -> void:
-	crack_timer.wait_time = 1
+	Globals.crack_spawn_rate = 1.0
 
 
 # AVOIDABLES
 func _on_avoidable_timer_timeout() -> void:
+	Globals.avoidable_spawn_rate *= 0.99
+	avoidable_timer.wait_time = clamp(Globals.avoidable_spawn_rate, 0.35, 5.0)
 	avoidable_timer.start()
-	avoidable_timer.wait_time *= 0.95
 	choose_avoidable()
 
 func choose_avoidable() -> void:
@@ -94,11 +97,11 @@ func spawn_avoidable(col_path) -> void:
 	var col = load(col_path).instantiate()
 	spawn_path.progress_ratio = randf()
 	col.position = spawn_path.global_position
-	col.speed = Globals.crack_speed
+	#col.speed = Globals.crack_speed
 	add_child(col)
 
 func _reset_avoidable_timer() -> void:
-	avoidable_timer.wait_time = 1
+	Globals.avoidable_spawn_rate = 2.5
 
 
 func _game_over() -> void:
