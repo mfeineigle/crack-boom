@@ -97,7 +97,6 @@ func spawn_avoidable(col_path) -> void:
 	var col = load(col_path).instantiate()
 	spawn_path.progress_ratio = randf()
 	col.position = spawn_path.global_position
-	#col.speed = Globals.crack_speed
 	add_child(col)
 
 func _reset_avoidable_timer() -> void:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://collectibles/narcan.gd" id="1_cgynf"]
 [ext_resource type="Texture2D" uid="uid://ddbrytwwk7to3" path="res://assets/collectibles/narcan_spray.png" id="1_v4mkp"]
 
-[node name="Narcan" type="Area2D"]
+[node name="Narcan" type="Area2D" groups=["narcans"]]
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_cgynf")
 

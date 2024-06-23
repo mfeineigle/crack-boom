@@ -18,6 +18,8 @@ signal caught_gun
 signal missed_gun
 signal caught_laptop
 signal missed_laptop
+signal caught_narcan
+signal missed_narcan
 
 # crack
 signal caught_crack

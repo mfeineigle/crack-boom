@@ -10,7 +10,6 @@ point_count = 2
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_3vc31")
-collectible_spawn = 4
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_bhwqx")

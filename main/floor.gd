@@ -6,6 +6,8 @@ func _on_area_entered(area: Area2D) -> void:
 		Signals.missed_art.emit()
 	elif area in get_tree().get_nodes_in_group("laptops"):
 		Signals.missed_laptop.emit()
+	elif area in get_tree().get_nodes_in_group("narcans"):
+		Signals.missed_narcan.emit()
 	elif area in get_tree().get_nodes_in_group("guns"):
 		Signals.missed_gun.emit()
 	elif area in get_tree().get_nodes_in_group("bribes"):
