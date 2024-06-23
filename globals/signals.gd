@@ -10,6 +10,8 @@ signal caught_private_eye
 signal missed_private_eye
 
 # collectibles
+signal caught_art
+signal missed_art
 signal caught_bribe
 signal missed_bribe
 signal caught_gun
