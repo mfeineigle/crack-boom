@@ -21,3 +21,18 @@ func get_all_files(path: String, file_ext := "", files := []):
 	else:
 		print("An error occurred when trying to access %s." % path)
 	return files
+
+
+func load_score() -> int:
+	if FileAccess.file_exists(Globals.save_path):
+		print("file found")
+		var file = FileAccess.open(Globals.save_path, FileAccess.READ)
+		return file.get_var()
+	else:
+		print("file not found")
+		return 0
+
+
+func save_score(highscore: int) -> void:
+	var file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
+	file.store_var(highscore)

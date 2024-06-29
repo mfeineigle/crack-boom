@@ -75,20 +75,37 @@ layout_mode = 2
 
 [node name="GameOverLabel" type="Label" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Game Over"
 
 [node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
 
-[node name="OnlineHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+[node name="LocalHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "1234"
 
-[node name="LocalHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+[node name="LocalLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LocalHBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "555"
+size_flags_horizontal = 2
+text = "Local High Score:"
+
+[node name="LocalHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LocalHBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "local"
+
+[node name="OnlineHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+layout_mode = 2
+
+[node name="OnlineLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/OnlineHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Online High Score:"
+
+[node name="OnlineHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/OnlineHBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
 
 [node name="BidenIceCream" type="TextureRect" parent="Background/CenterHBox"]
 layout_mode = 2
