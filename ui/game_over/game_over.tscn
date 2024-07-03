@@ -81,6 +81,19 @@ text = "Game Over"
 [node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
 
+[node name="LastHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+layout_mode = 2
+
+[node name="LastLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Last Score:"
+
+[node name="LastHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastHBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "last"
+
 [node name="LocalHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 
@@ -105,7 +118,7 @@ text = "Online High Score:"
 [node name="OnlineHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/OnlineHBox"]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "0"
+text = "online"
 
 [node name="BidenIceCream" type="TextureRect" parent="Background/CenterHBox"]
 layout_mode = 2
