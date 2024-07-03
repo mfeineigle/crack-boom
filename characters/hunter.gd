@@ -28,6 +28,8 @@ func _process(delta):
 		self.scale.x = -0.4
 	if Input.is_action_pressed("speed_up"):
 		Globals.crack_speed += 25
+	if Input.is_action_pressed("speed_down"):
+		Globals.crack_speed -= 10
 	
 	position += velocity * speed * delta
 	# clamp within the screensize
