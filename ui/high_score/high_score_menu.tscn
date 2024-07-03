@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkwm0kt8s0mb6"]
+[gd_scene load_steps=4 format=3 uid="uid://dkwm0kt8s0mb6"]
 
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_hedq8"]
 [ext_resource type="Script" path="res://ui/high_score/high_score_menu.gd" id="1_r3hx7"]
 [ext_resource type="Script" path="res://ui/high_score/BackButton.gd" id="2_psk8l"]
-[ext_resource type="Script" path="res://ui/high_score/ResetButton.gd" id="3_4f5es"]
 
 [node name="HighScoreMenu" type="Control"]
 layout_mode = 3
@@ -51,9 +50,33 @@ layout_mode = 2
 [node name="LocalLabel" type="Label" parent="TextureRect/ScoresVbox/LocalHBox"]
 layout_mode = 2
 size_flags_horizontal = 2
+size_flags_vertical = 0
 text = "Local:"
 
-[node name="LocalScoreLabel" type="Label" parent="TextureRect/ScoresVbox/LocalHBox"]
+[node name="LocalScoresVBox" type="VBoxContainer" parent="TextureRect/ScoresVbox/LocalHBox"]
+layout_mode = 2
+
+[node name="LocalScoreLabel1" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel2" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel3" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel4" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel5" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
@@ -87,12 +110,11 @@ grow_vertical = 0
 [node name="ResetButton" type="Button" parent="TextureRect/ButtonsVBox"]
 layout_mode = 2
 text = "Reset Scores"
-script = ExtResource("3_4f5es")
 
 [node name="BackButton" type="Button" parent="TextureRect/ButtonsVBox"]
 layout_mode = 2
 text = "Back to Menu"
 script = ExtResource("2_psk8l")
 
-[connection signal="button_down" from="TextureRect/ButtonsVBox/ResetButton" to="TextureRect/ButtonsVBox/ResetButton" method="_on_button_down"]
+[connection signal="button_down" from="TextureRect/ButtonsVBox/ResetButton" to="." method="_on_reset_button_down"]
 [connection signal="button_down" from="TextureRect/ButtonsVBox/BackButton" to="TextureRect/ButtonsVBox/BackButton" method="_on_button_down"]

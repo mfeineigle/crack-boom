@@ -23,16 +23,23 @@ func get_all_files(path: String, file_ext := "", files := []):
 	return files
 
 
-func load_score() -> int:
-	if FileAccess.file_exists(Globals.save_path):
-		print("file found")
-		var file = FileAccess.open(Globals.save_path, FileAccess.READ)
-		return file.get_var()
-	else:
-		print("file not found")
-		return 0
+func load_score() -> Array:
+	if not FileAccess.file_exists(Globals.save_path):
+		var w_file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
+		w_file.store_var([0,0,0,0,0])
+		print("load score not exists")
+	var r_file = FileAccess.open(Globals.save_path, FileAccess.READ)
+	var scores: Array = r_file.get_var()
+	scores.reverse()
+	return scores.slice(0,5)
 
 
 func save_score(highscore: int) -> void:
-	var file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
-	file.store_var(highscore)
+	var old_scores: Array
+	if FileAccess.file_exists(Globals.save_path):
+		var r_file = FileAccess.open(Globals.save_path, FileAccess.READ)
+		old_scores = r_file.get_var()
+		old_scores.append(highscore)
+		old_scores.sort()
+	var w_file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
+	w_file.store_var(old_scores)
