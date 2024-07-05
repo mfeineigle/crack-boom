@@ -8,3 +8,4 @@ func _on_area_entered(area: Area2D) -> void:
 		AudioManager.play(inhales.pick_random())
 	if area in get_tree().get_nodes_in_group("joes"):
 		Globals.crack_spawn_rate *= 1.1
+		AudioManager.play("res://assets/audio/joe_breathe_boy.mp3")
