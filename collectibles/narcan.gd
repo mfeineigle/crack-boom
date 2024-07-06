@@ -1,11 +1,23 @@
 extends Collectible
 
-var inhales: Array = ["res://assets/audio/inhale_1.mp3", "res://assets/audio/inhale_2.mp3", "res://assets/audio/nar_cant.mp3"]
+enum SUBCHOICE {SPAWN, COLLECT}
+											# SPAWN
+var audio_choice: Dictionary = {"NARCAN": [ ["res://assets/audio/joe_breathe_boy.mp3",
+											 "res://assets/audio/nar_cant.mp3"],
+											# COLLECT
+											["res://assets/audio/inhale_1.mp3",
+											 "res://assets/audio/inhale_2.mp3"],
+										  ],
+							   }
+
+func _ready() -> void:
+	AudioManager.play(audio_choice.NARCAN[SUBCHOICE.SPAWN].pick_random())
+
 
 func _on_area_entered(area: Area2D) -> void:
 	if area in get_tree().get_nodes_in_group("hunter"):
 		Globals.crack_spawn_rate *= 1.1
-		AudioManager.play(inhales.pick_random())
+		AudioManager.play(audio_choice.NARCAN[SUBCHOICE.COLLECT].pick_random())
 	if area in get_tree().get_nodes_in_group("joes"):
 		Globals.crack_spawn_rate *= 1.1
-		AudioManager.play("res://assets/audio/joe_breathe_boy.mp3")
+		AudioManager.play(audio_choice.NARCAN[SUBCHOICE.COLLECT].pick_random())
