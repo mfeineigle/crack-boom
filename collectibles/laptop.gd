@@ -9,21 +9,35 @@ enum CHOICE {RUSSIA, HOOKER, UKRAINE, CHINA}
 enum SUBCHOICE {SPAWN, COLLECT}
 
 @onready var choice:int = CHOICE.values().pick_random()
-
-var audio_choice: Dictionary = {"RUSSIA": [ ["res://assets/audio/laptop_russian_disinfo.mp3", "res://assets/audio/trump_who_was_seth_rich.mp3"],
-											["res://assets/audio/joe_i_saved_democracy.mp3", "res://assets/audio/trump_hacked_elections.mp3" ],
+											# SPAWN
+var audio_choice: Dictionary = {"RUSSIA": [ ["res://assets/audio/laptop_russian_disinfo.mp3",
+											 "res://assets/audio/trump_who_was_seth_rich.mp3"],
+											# COLLECT
+											["res://assets/audio/joe_i_saved_democracy.mp3",
+											 "res://assets/audio/trump_hacked_elections.mp3" ],
 										  ],
-								"HOOKER": [ ["res://assets/audio/joe_really_son.mp3", "res://assets/audio/laptop_trump_stormy_crime_that_atrocity.mp3"],
-											["res://assets/audio/joe_you_paid_for_that.mp3","res://assets/audio/trump_what_a_simp.mp3" ],
+											# SPAWN
+								"HOOKER": [ ["res://assets/audio/joe_really_son.mp3",
+											 "res://assets/audio/laptop_trump_stormy_crime_that_atrocity.mp3"],
+											# COLLECT
+											["res://assets/audio/joe_you_paid_for_that.mp3",
+											 "res://assets/audio/trump_what_a_simp.mp3" ],
 										  ],
-								"UKRAINE": [ ["res://assets/audio/joe_smartest_tycoon.mp3", "res://assets/audio/trump_what_is_burisma.mp3"],
-											 ["res://assets/audio/joe_dont_pay_to_play.mp3","res://assets/audio/trump_youre_fired_my_line.mp3" ],
+											# SPAWN
+								"UKRAINE": [ ["res://assets/audio/joe_smartest_tycoon.mp3",
+											  "res://assets/audio/trump_what_is_burisma.mp3"],
+											# COLLECT
+											 ["res://assets/audio/joe_dont_pay_to_play.mp3",
+											  "res://assets/audio/trump_youre_fired_my_line.mp3" ],
 										   ],
-								"CHINA": [ ["res://assets/audio/joe_what_billion_deal.mp3", "res://assets/audio/trump_china_owns_biden.mp3"],
-										   ["res://assets/audio/joe_beijing_ally.mp3", "res://assets/audio/trump_tough_on_chinas_pocket_book.mp3"],
+											# SPAWN
+								"CHINA": [ ["res://assets/audio/joe_what_billion_deal.mp3",
+											"res://assets/audio/trump_china_owns_biden.mp3"],
+											# COLLECT
+										   ["res://assets/audio/joe_beijing_ally.mp3",
+											"res://assets/audio/trump_tough_on_chinas_pocket_book.mp3"],
 										 ],
-
-}
+							   }
 
 func _ready() -> void:
 	match choice:
