@@ -57,10 +57,8 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area in get_tree().get_nodes_in_group("hunter"):
-		Globals.crack_spawn_rate *= 1.1
 		_choose_audio()
 	if area in get_tree().get_nodes_in_group("joes"):
-		Globals.crack_spawn_rate *= 1.1
 		_choose_audio()
 
 func _choose_audio() -> void:
