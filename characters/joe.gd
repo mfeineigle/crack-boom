@@ -9,15 +9,6 @@ extends Area2D
 var velocity = Vector2.RIGHT
 var rotation_direction:bool = true
 
-func _ready() -> void:
-	var pis = get_tree().get_nodes_in_group("private_eyes")
-	if pis:
-		AudioManager.play("res://assets/audio/they_fired_him.mp3")
-		for pi in pis:
-			pi.queue_free()
-	else:
-		AudioManager.play("res://assets/audio/joe_biden_10_percent_for_me.mp3")
-
 
 func _process(delta: float) -> void:
 	position += velocity * speed * delta * move_toward_hunter()
