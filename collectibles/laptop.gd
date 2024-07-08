@@ -6,7 +6,6 @@ extends Collectible
 @onready var china_sprite_2d: Sprite2D = $Sprites/ChinaSprite2D
 
 enum CHOICE {RUSSIA, HOOKER, UKRAINE, CHINA}
-enum SUBCHOICE {SPAWN, COLLECT}
 
 @onready var choice:int = CHOICE.values().pick_random()
 											# SPAWN

@@ -1,6 +1,8 @@
 class_name Collectible
 extends Area2D
 
+enum SUBCHOICE {SPAWN, COLLECT}
+
 @onready var spin: int = (randi() % 3) + 3
 
 var speed:int = Globals.crack_speed

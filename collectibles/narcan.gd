@@ -1,6 +1,5 @@
 extends Collectible
 
-enum SUBCHOICE {SPAWN, COLLECT}
 											# SPAWN
 var audio_choice: Dictionary = {"NARCAN": [ ["res://assets/audio/joe_breathe_boy.mp3",
 											 "res://assets/audio/nar_cant.mp3"],
