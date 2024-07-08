@@ -7,8 +7,10 @@ var bus = "master"
 var available = []  # The available players.
 var queue = []  # The queue of sounds to play.
 
-@onready var all_clips: Array
-var used_clips: Array
+## reset clip timer
+@onready var clip_timer: Timer = Timer.new()
+## track used clips
+@onready var all_clips: Array = (Utils.get_all_files("res://assets/audio", "mp3"))
 
 func _ready():
 	# Create the pool of AudioStreamPlayer nodes.
@@ -18,7 +20,11 @@ func _ready():
 		available.append(p)
 		p.finished.connect(_on_stream_finished.bind(p))
 		p.bus = bus
-	all_clips = (Utils.get_all_files("res://assets/audio", "mp3"))
+	# setup timer
+	add_child(clip_timer)
+	clip_timer.connect("timeout", _on_clip_timer_timeout)
+	clip_timer.wait_time = 15
+	clip_timer.start()
 
 
 func _on_stream_finished(stream):
@@ -42,13 +48,11 @@ func stop_all() -> void:
 	is_playing = false
 
 
+## remove a clip from 'all_clips' on played to prevent duplicate plays too soon
 func track_played(sound_path) -> void:
 	for i in all_clips:
 		if i == sound_path:
-			used_clips.append(i)
 			all_clips.erase(i)
-	if all_clips.size() < 10:
-		all_clips += used_clips
 
 
 func _process(_delta):
@@ -56,4 +60,7 @@ func _process(_delta):
 	if queue.size() > 0 and available.size() > 0:
 		available[0].stream = load(queue.pop_front())
 		available[0].play()
-		#available.pop_front()
+
+## reset 'all_clips'
+func _on_clip_timer_timeout() -> void:
+	all_clips = (Utils.get_all_files("res://assets/audio", "mp3"))
