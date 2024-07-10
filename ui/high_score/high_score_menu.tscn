@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkwm0kt8s0mb6"]
+[gd_scene load_steps=8 format=3 uid="uid://dkwm0kt8s0mb6"]
 
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_hedq8"]
 [ext_resource type="Script" path="res://ui/high_score/high_score_menu.gd" id="1_r3hx7"]
 [ext_resource type="Script" path="res://ui/high_score/BackButton.gd" id="2_psk8l"]
+[ext_resource type="Script" path="res://ui/high_score/ResetButton.gd" id="3_tjryc"]
+[ext_resource type="Texture2D" uid="uid://kt7i1e6b6ihd" path="res://assets/ui/reset_confirm_popup.png" id="4_dkhda"]
+[ext_resource type="Script" path="res://ui/high_score/ResetConfirmButton.gd" id="6_7ttfk"]
+[ext_resource type="Script" path="res://ui/high_score/ResetCancelButton.gd" id="7_lpkhk"]
 
 [node name="HighScoreMenu" type="Control"]
 layout_mode = 3
@@ -54,6 +58,7 @@ size_flags_vertical = 0
 text = "Local:"
 
 [node name="LocalScoresVBox" type="VBoxContainer" parent="TextureRect/ScoresVbox/LocalHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="LocalScoreLabel1" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
@@ -81,19 +86,6 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
-[node name="OnlineHBox" type="HBoxContainer" parent="TextureRect/ScoresVbox"]
-layout_mode = 2
-
-[node name="OnlineLabel" type="Label" parent="TextureRect/ScoresVbox/OnlineHBox"]
-layout_mode = 2
-size_flags_horizontal = 2
-text = "Online:"
-
-[node name="OnlineScoreLabel" type="Label" parent="TextureRect/ScoresVbox/OnlineHBox"]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "0"
-
 [node name="ButtonsVBox" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 7
@@ -108,13 +100,82 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="ResetButton" type="Button" parent="TextureRect/ButtonsVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Reset Scores"
+script = ExtResource("3_tjryc")
 
 [node name="BackButton" type="Button" parent="TextureRect/ButtonsVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Back to Menu"
 script = ExtResource("2_psk8l")
 
-[connection signal="button_down" from="TextureRect/ButtonsVBox/ResetButton" to="." method="_on_reset_button_down"]
+[node name="ResetConfirmTextureRect" type="TextureRect" parent="TextureRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_dkhda")
+
+[node name="ConfirmLabelsVBoxContainer" type="VBoxContainer" parent="TextureRect/ResetConfirmTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.0
+offset_right = 183.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="ConfirmResetLabel1" type="Label" parent="TextureRect/ResetConfirmTextureRect/ConfirmLabelsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Are you sure you want to reset the high scores?"
+
+[node name="ConfirmResetLabel2" type="Label" parent="TextureRect/ResetConfirmTextureRect/ConfirmLabelsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "This can NOT be undone!"
+
+[node name="ResetConfirmButton" type="Button" parent="TextureRect/ResetConfirmTextureRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 114.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Reset Scores"
+script = ExtResource("6_7ttfk")
+
+[node name="ResetCancelButton" type="Button" parent="TextureRect/ResetConfirmTextureRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Cancel"
+script = ExtResource("7_lpkhk")
+
+[connection signal="button_down" from="TextureRect/ButtonsVBox/ResetButton" to="TextureRect/ButtonsVBox/ResetButton" method="_on_reset_button_down"]
 [connection signal="button_down" from="TextureRect/ButtonsVBox/BackButton" to="TextureRect/ButtonsVBox/BackButton" method="_on_button_down"]
+[connection signal="button_down" from="TextureRect/ResetConfirmTextureRect/ResetConfirmButton" to="TextureRect/ResetConfirmTextureRect/ResetConfirmButton" method="_on_button_down"]
+[connection signal="button_down" from="TextureRect/ResetConfirmTextureRect/ResetCancelButton" to="TextureRect/ResetConfirmTextureRect/ResetCancelButton" method="_on_button_down"]
