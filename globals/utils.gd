@@ -24,11 +24,11 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 
 func load_score() -> Array:
-	if not FileAccess.file_exists(Globals.save_path):
-		var w_file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
+	if not FileAccess.file_exists(Globals.score_save_path):
+		var w_file = FileAccess.open(Globals.score_save_path, FileAccess.WRITE)
 		w_file.store_var([0,0,0,0,0])
 		print("load score not exists")
-	var r_file = FileAccess.open(Globals.save_path, FileAccess.READ)
+	var r_file = FileAccess.open(Globals.score_save_path, FileAccess.READ)
 	var scores: Array = r_file.get_var()
 	scores.reverse()
 	return scores.slice(0,5)
@@ -36,10 +36,32 @@ func load_score() -> Array:
 
 func save_score(highscore: int) -> void:
 	var old_scores: Array
-	if FileAccess.file_exists(Globals.save_path):
-		var r_file = FileAccess.open(Globals.save_path, FileAccess.READ)
+	if FileAccess.file_exists(Globals.score_save_path):
+		var r_file = FileAccess.open(Globals.score_save_path, FileAccess.READ)
 		old_scores = r_file.get_var()
 		old_scores.append(highscore)
 		old_scores.sort()
-	var w_file = FileAccess.open(Globals.save_path, FileAccess.WRITE)
+	var w_file = FileAccess.open(Globals.score_save_path, FileAccess.WRITE)
 	w_file.store_var(old_scores)
+
+
+func load_time() -> Array:
+	if not FileAccess.file_exists(Globals.time_save_path):
+		var w_file = FileAccess.open(Globals.time_save_path, FileAccess.WRITE)
+		w_file.store_var([0,0,0,0,0])
+		print("load score not exists")
+	var r_file = FileAccess.open(Globals.time_save_path, FileAccess.READ)
+	var times: Array = r_file.get_var()
+	times.reverse()
+	return times.slice(0,5)
+
+
+func save_time(hightime: float) -> void:
+	var old_times: Array
+	if FileAccess.file_exists(Globals.time_save_path):
+		var r_file = FileAccess.open(Globals.time_save_path, FileAccess.READ)
+		old_times = r_file.get_var()
+		old_times.append(hightime)
+		old_times.sort()
+	var w_file = FileAccess.open(Globals.time_save_path, FileAccess.WRITE)
+	w_file.store_var(old_times)

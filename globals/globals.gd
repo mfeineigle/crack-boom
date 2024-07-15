@@ -1,6 +1,7 @@
 extends Node
 
-var save_path = "user://score.save"
+var score_save_path = "user://score.save"
+var time_save_path = "user://time.save"
 var screensize = Vector2(800, 360)
 var current_level
 

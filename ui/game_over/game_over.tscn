@@ -81,44 +81,57 @@ text = "Game Over"
 [node name="HighScoreVBox" type="VBoxContainer" parent="Background/CenterHBox/GameOverVBox"]
 layout_mode = 2
 
-[node name="LastHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+[node name="LastScoreHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 
-[node name="LastLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastHBox"]
+[node name="YourScoreLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastScoreHBox"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "Last Score:"
+text = "Your Score:"
 
-[node name="LastHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastHBox"]
+[node name="YourScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastScoreHBox"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "last"
+text = "0"
 
-[node name="LocalHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+[node name="HighScoreHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 
-[node name="LocalLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LocalHBox"]
+[node name="HighScoreLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/HighScoreHBox"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "Local High Score:"
+text = "High Score:"
 
-[node name="LocalHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LocalHBox"]
+[node name="HighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/HighScoreHBox"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "local"
+text = "0"
 
-[node name="OnlineHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+[node name="LastTimeHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
 layout_mode = 2
 
-[node name="OnlineLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/OnlineHBox"]
+[node name="YourTimeLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastTimeHBox"]
 layout_mode = 2
 size_flags_horizontal = 2
-text = "Online High Score:"
+text = "Your Time:"
 
-[node name="OnlineHighScore" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/OnlineHBox"]
+[node name="YourTime" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/LastTimeHBox"]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "online"
+text = "0.0"
+
+[node name="BestTimeHBox" type="HBoxContainer" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox"]
+layout_mode = 2
+
+[node name="BestTimeLabel" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/BestTimeHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Best Time:"
+
+[node name="BestTime" type="Label" parent="Background/CenterHBox/GameOverVBox/HighScoreVBox/BestTimeHBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0.0"
 
 [node name="BidenIceCream" type="TextureRect" parent="Background/CenterHBox"]
 layout_mode = 2

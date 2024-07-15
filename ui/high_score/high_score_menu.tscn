@@ -51,37 +51,72 @@ grow_vertical = 2
 [node name="LocalHBox" type="HBoxContainer" parent="TextureRect/ScoresVbox"]
 layout_mode = 2
 
-[node name="LocalLabel" type="Label" parent="TextureRect/ScoresVbox/LocalHBox"]
+[node name="ScoresLabel" type="Label" parent="TextureRect/ScoresVbox/LocalHBox"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
-text = "Local:"
+text = "High Scores:"
 
-[node name="LocalScoresVBox" type="VBoxContainer" parent="TextureRect/ScoresVbox/LocalHBox"]
+[node name="ScoresVBox" type="VBoxContainer" parent="TextureRect/ScoresVbox/LocalHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LocalScoreLabel1" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+[node name="LocalScoreLabel1" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/ScoresVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
-[node name="LocalScoreLabel2" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+[node name="LocalScoreLabel2" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/ScoresVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
-[node name="LocalScoreLabel3" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+[node name="LocalScoreLabel3" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/ScoresVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
-[node name="LocalScoreLabel4" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+[node name="LocalScoreLabel4" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/ScoresVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
 
-[node name="LocalScoreLabel5" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/LocalScoresVBox"]
+[node name="LocalScoreLabel5" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/ScoresVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="TimesLabel" type="Label" parent="TextureRect/ScoresVbox/LocalHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "Best Times:"
+
+[node name="TimesVBox" type="VBoxContainer" parent="TextureRect/ScoresVbox/LocalHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LocalScoreLabel1" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/TimesVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel2" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/TimesVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel3" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/TimesVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel4" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/TimesVBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0"
+
+[node name="LocalScoreLabel5" type="Label" parent="TextureRect/ScoresVbox/LocalHBox/TimesVBox"]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
