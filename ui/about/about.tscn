@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://djqn5qyh4yv3n"]
+
+[ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_cws0j"]
+[ext_resource type="Script" path="res://ui/about/BackButton.gd" id="2_ppnho"]
+[ext_resource type="Script" path="res://ui/QuitButton.gd" id="2_y5cya"]
+
+[node name="About" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 360.0
+texture = ExtResource("1_cws0j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_right = 83.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "All voices are fake!"
+
+[node name="Label2" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+text = "Links to news stories."
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BackButton" type="Button" parent="Background/ButtonsVBox"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("2_ppnho")
+
+[node name="QuitButton" type="Button" parent="Background/ButtonsVBox"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("2_y5cya")
+
+[connection signal="button_down" from="Background/ButtonsVBox/BackButton" to="Background/ButtonsVBox/BackButton" method="_on_button_down"]
+[connection signal="button_down" from="Background/ButtonsVBox/QuitButton" to="Background/ButtonsVBox/QuitButton" method="_on_button_down"]

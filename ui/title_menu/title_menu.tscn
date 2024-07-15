@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://fasdbfv0naj0"]
+[gd_scene load_steps=7 format=3 uid="uid://fasdbfv0naj0"]
 
 [ext_resource type="Script" path="res://ui/title_menu/title_menu.gd" id="1_2hugm"]
 [ext_resource type="Texture2D" uid="uid://db6e5583rwwws" path="res://assets/ui/title_background.png" id="1_n1phd"]
 [ext_resource type="Script" path="res://ui/title_menu/StartButton.gd" id="2_xoxt8"]
 [ext_resource type="Script" path="res://ui/title_menu/TitleHighScoresButton.gd" id="3_w5ruc"]
 [ext_resource type="Script" path="res://ui/QuitButton.gd" id="4_e3cac"]
+[ext_resource type="Script" path="res://ui/title_menu/AboutButton.gd" id="5_txyx7"]
 
 [node name="TitleMenu" type="Control"]
 layout_mode = 3
@@ -66,6 +67,11 @@ layout_mode = 2
 text = "High Scores"
 script = ExtResource("3_w5ruc")
 
+[node name="AboutButton" type="Button" parent="Background/ButtonsVBox"]
+layout_mode = 2
+text = "About / Disclaimer"
+script = ExtResource("5_txyx7")
+
 [node name="QuitButton" type="Button" parent="Background/ButtonsVBox"]
 layout_mode = 2
 text = "Quit"
@@ -73,4 +79,5 @@ script = ExtResource("4_e3cac")
 
 [connection signal="button_down" from="Background/ButtonsVBox/StartButton" to="Background/ButtonsVBox/StartButton" method="_on_button_down"]
 [connection signal="button_down" from="Background/ButtonsVBox/HighScoresButton" to="Background/ButtonsVBox/HighScoresButton" method="_on_button_down"]
+[connection signal="button_down" from="Background/ButtonsVBox/AboutButton" to="Background/ButtonsVBox/AboutButton" method="_on_button_down"]
 [connection signal="button_down" from="Background/ButtonsVBox/QuitButton" to="Background/ButtonsVBox/QuitButton" method="_on_button_down"]
