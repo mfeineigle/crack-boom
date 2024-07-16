@@ -13,7 +13,6 @@ func _ready() -> void:
 	AudioManager.play(audio_choice.GUN[SUBCHOICE.SPAWN].pick_random())
 
 func _on_area_entered(area: Area2D) -> void:
-	Signals.spawn_joe.emit()
 	if area in get_tree().get_nodes_in_group("hunter"):
 		AudioManager.play(audio_choice.GUN[SUBCHOICE.COLLECT].pick_random())
 	if area in get_tree().get_nodes_in_group("joes"):

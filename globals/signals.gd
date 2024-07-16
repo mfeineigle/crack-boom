@@ -1,6 +1,7 @@
 extends Node
 
 signal spawn_joe
+signal run_away_joe
 
 
 # avoidables
