@@ -15,8 +15,6 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	Signals.spawn_joe.emit()
 	if area in get_tree().get_nodes_in_group("hunter"):
-		Globals.crack_spawn_rate *= 1.1
 		AudioManager.play(audio_choice.BRIBE[SUBCHOICE.COLLECT].pick_random())
 	if area in get_tree().get_nodes_in_group("joes"):
-		Globals.crack_spawn_rate *= 1.1
 		AudioManager.play(audio_choice.BRIBE[SUBCHOICE.COLLECT].pick_random())

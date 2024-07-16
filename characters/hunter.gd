@@ -35,14 +35,15 @@ func _process(delta):
 	# clamp within the screensize
 	position.x = clamp(position.x, 55, screensize.x-55)
 	Globals.hunter_pos = position
-	
+
+
 func _caught_crack() -> void:
 	if not is_smoking:
 		var choice: int = randi() % smoke_sfx.size()
 		smoke_crack.stream = load(smoke_sfx[choice])
 		is_smoking = true
 		smoke_crack.play()
-	#Globals.crack_speed += 25
+
 
 func _on_area_entered(area: Area2D) -> void:
 	# crack
@@ -54,12 +55,16 @@ func _on_area_entered(area: Area2D) -> void:
 	elif area in get_tree().get_nodes_in_group("private_eyes"):
 		Signals.caught_private_eye.emit()
 	# collectibles
+	elif area in get_tree().get_nodes_in_group("arts"):
+		Signals.caught_art.emit()
 	elif area in get_tree().get_nodes_in_group("bribes"):
 		Signals.caught_bribe.emit()
 	elif area in get_tree().get_nodes_in_group("guns"):
 		Signals.caught_gun.emit()
 	elif area in get_tree().get_nodes_in_group("laptops"):
 		Signals.caught_laptop.emit()
+	elif area in get_tree().get_nodes_in_group("narcans"):
+		Signals.caught_narcan.emit()
 	area.queue_free()
 
 func _on_pipe_area_entered(area: Area2D) -> void:
