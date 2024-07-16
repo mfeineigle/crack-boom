@@ -1,7 +1,7 @@
 extends Node2D
 
 # control spawns
-enum collectibles {LAPTOP, GUN, BRIBE, NARCAN, ART, RANDOM, NONE}
+enum collectibles {ART, GUN, LAPTOP, NARCAN, BRIBE, RANDOM, NONE}
 @export var collectible_spawn:collectibles = collectibles.RANDOM
 enum avoidables {FBI, PRIVATE_EYE, RANDOM, NONE}
 @export var avoidable_spawn:avoidables = avoidables.RANDOM
@@ -42,19 +42,20 @@ func _on_collectible_timer_timeout() -> void:
 	choose_collectable()
 
 func choose_collectable() -> void:
-	var choice:int = randi() % 5
+	var roll:float = randf()
 	if collectible_spawn != collectibles.RANDOM:
-		choice = collectible_spawn
-	if choice == 0:
-		spawn_collectible("res://collectibles/laptop.tscn")
-	elif choice == 1:
-		spawn_collectible("res://collectibles/gun.tscn")
-	elif choice == 2:
-		spawn_collectible("res://collectibles/bribe.tscn")
-	elif choice == 3:
-		spawn_collectible("res://collectibles/narcan.tscn")
-	elif choice == 4:
+		roll = collectible_spawn * 0.16
+	if 0 <= roll and roll < 0.15:
 		spawn_collectible("res://collectibles/art.tscn")
+	elif 0.15 <= roll and roll < 0.30:
+		spawn_collectible("res://collectibles/gun.tscn")
+	elif 0.30 <= roll and roll < 0.45:
+		spawn_collectible("res://collectibles/laptop.tscn")
+	elif 0.45 <= roll and roll < 0.60:
+		spawn_collectible("res://collectibles/narcan.tscn")
+	elif 0.60 <= roll and roll <= 1:
+		spawn_collectible("res://collectibles/bribe.tscn")
+
 
 func spawn_collectible(col_path: String) -> void:
 	var col = load(col_path).instantiate()
