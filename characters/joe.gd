@@ -25,10 +25,8 @@ func _process(delta: float) -> void:
 	else: #running_away = true
 		position += velocity * speed * delta * exit_dir
 		if position.x < -50:
-			print("gone left")
 			queue_free()
 		elif position.x > 850:
-			print("gone right")
 			queue_free()
 
 func move_toward_hunter() -> Vector2:
